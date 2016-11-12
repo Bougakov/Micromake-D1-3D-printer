@@ -1,6 +1,6 @@
 # Proper assembly of the printing head
 
-Today I decided to clean the hot end of my printer, for the first time since I bought Micromake D1. I found out that hot ABS leaked in every connection and had to soak everything in acetone. So I decided to study the subject and assemble the hot end properly this time.
+Today I decided to clean the hot end of my printer, for the first time since I bought Micromake D1. I found out that molten ABS leaked in every connection and I had to soak everything in acetone for hours to clean it. So I decided to study the subject and assemble the hot end properly this time.
 
 The physics is like this: cold ABS filament has uniform diameter of 1.75mm:
 
