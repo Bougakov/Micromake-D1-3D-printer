@@ -20,7 +20,7 @@ This **piston** is important for retract function to work properly. If the warm 
 
 So the goal is to make the distance where the ABS melts very **abupt**.
 
-Here are the parts of the printing head. ABS melts on the short end of the threaded tube, and expands in the long end. Aluminum fins help to dissipate heat - dedicated fan cools them down with air all the time. **Our goal is to protect the thermal barrier tube from getting excessive heat and help it to cool down more efficiently.**
+Here are the parts of the printing head. ABS melts on the short end of the threaded tube (on the inside it is made from Teflon, which makes the movement of ABS super smooth), and expands in the long end. Aluminum fins help to dissipate heat - dedicated fan cools them down with air all the time. **Our goal is to protect the thermal barrier tube from getting excessive heat and help it to cool down more efficiently.**
 
 ![Components](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/printhead_0_components.jpg)
 
