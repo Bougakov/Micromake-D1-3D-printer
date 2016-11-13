@@ -107,7 +107,7 @@ These are exact offsets measured by the printer. Write them down.
 
 ## Step three: measuring the printer height manually.
 
-I also wanted to have the printer's height measured exactly. My printer has had a value of `329.260 Z max length [mm]` stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in memory. (Use Machine -> Firmware configuration to change printer's settings in CURA)
+I also wanted to have the printer's height measured exactly. My printer has had a value of `329.260 Z max length [mm]` stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in memory. (Use `Machine` -> `Firmware configuration` to change printer's settings in CURA.)
 
 Run these commands to first home the head and then move it down:
 
@@ -130,14 +130,16 @@ As the result we now know exact values for four of the seven variables needed by
 
 Open the link to online calculator and start filling values:
 
-`Firmware type:` choose Repetier
-`Steps/mm (for Repetier only):` enter `100`		
-`Initial endstop corrections:` enter the values for X, Y, Z we just measured with the metal rod or ruler	
-`Initial diagonal rod length:` if you use standard Micromake rods, enter `217`. If you use something custom, measure length from hole to hole in mm.		
-`Initial delta radius:` for the dome-shaped Micromake effector (with two fans on the sides) it is `95`mm		
-`Initial homed height:` it is the height you just calculated.
-`Initial tower angular position corrections:` leave zeroes there.
-`Printable bed radius:` because I have paper clips around my glass, my print area is reduced. So in my case I entered `75`mm, but you can try `80`mm		
-`Number of probe points:` Change this to `10`		
-`Number of factors to calibrate:` Change to `7`		
+Setting | What to enter
+--- | ---
+`Firmware type:` | choose Repetier
+`Steps/mm (for Repetier only):` | enter `100`		
+`Initial endstop corrections:` | enter the values for X, Y, Z we just measured with the metal rod or ruler	
+`Initial diagonal rod length:` | if you use standard Micromake rods, enter `217`. If you use something custom, measure length from hole to hole in mm.		
+`Initial delta radius:` | for the dome-shaped Micromake effector (with two fans on the sides) it is `95`mm		
+`Initial homed height:` | it is the height you just calculated.
+`Initial tower angular position corrections:` | leave zeroes there.
+`Printable bed radius:` | because I have paper clips around my glass, my print area is reduced. So in my case I entered `75`mm, but you can try `80`mm		
+`Number of probe points:` | change this to `10`		
+`Number of factors to calibrate:` | change to `7`		
 
