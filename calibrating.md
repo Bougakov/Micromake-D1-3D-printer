@@ -17,7 +17,7 @@ I was inspired by this video from Repetier project. Unfortunately, it relies on 
 You will need:
 
 * something long, like 30cm steel ruler or a piece of 30-40cm metal rod
-* calculator (Windows #calc.exe# is just fine)
+* calculator (Windows `calc.exe` is just fine)
 * any software that can send commands to COM port. I was using Repetier Host, but you can even use Arduino's *Serial monitor* - Just set the correct port speed (250 000 baud) and connect.
 * [This brilliant online calculator](http://escher3d.com/pages/wizards/wizarddelta.php) (open it in new tab of your browser)
 * 5-10 minutes of time
@@ -70,7 +70,7 @@ Now comes the tricky part. Look at the picture above, and relative to the positi
 
 Let's start with X tower. Place a rod firmly into the slot of the aluminum beam (I used steel ruler):
 
-![Steel ruler](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling1.jpg)
+![Steel ruler](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling2.jpg)
 
 Next, run this command:
 
