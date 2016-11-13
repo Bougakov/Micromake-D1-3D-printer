@@ -38,7 +38,9 @@ To make things worse, all those variables are poorly named. You might have got u
 
 ## Step one - let's purge all autoleveling data your printer is storing
 
-First, check that the tension of all three belts is satisfactory. If you are printing with ABS, make sure your printer is warmed up and you are conducting the measurements on the hot printer (because metal parts expand and dimensions slightly change). On the LCD screen select #Quick settings# -> #Preheat ABS# to do that.
+First, check that the tension of all three belts is satisfactory. Inspect all screws, tighten those that went loose. Inspect all endstops as well. This is important!
+
+If you are printing with ABS, make sure your printer is warmed up and you are conducting the measurements on the hot printer (because metal parts expand and dimensions slightly change). On the LCD screen select `Quick settings` -> `Preheat ABS` to do that.
 
 If you are connected to COM port, fire this command:
 
@@ -58,7 +60,7 @@ This will reset the printer completely.
 
 ## Step two - measuring exact offsets of all three endstops:
 
-Now let's bring all pulley to the 20cm height (or, at least, what your printer *believes* is 20cm height). "X0 Y0" tell the head to stay at the point with the coordinates of 0,0 and Z200 tells it to stay 200mm from below.
+Now let's bring all pulley to the 20cm height (or, at least, what your printer *believes* is 20cm height). `X0 Y0` tell the head to stay at the point with the coordinates of `0,0` and `Z200` tells it to stay 200mm from below.
 
 ~~~~
 G1 X0 Y0 Z200 ; Move extruder down to 20cm height
@@ -78,7 +80,7 @@ M99 X0 ; Disables stepper motor for tower X for 10 seconds.
 
 Stepper motors for towers Y and Z will still work. But motor for tower X will turn off for 10 seconds and allow you to bring the pulley down, so it touches your metal rod (or ruler). Hold it firmly and wait till the stepper "wakes up". Then gently remove the rod.
 
-Repeat the procedure for remaining towers:
+Repeat the procedure for remaining towers one by one:
 
 ~~~~
 M99 Y0 ; Disables stepper motor for tower Y for 10 seconds.
@@ -105,7 +107,7 @@ These are exact offsets measured by the printer. Write them down.
 
 ## Step three: measuring the printer height manually.
 
-I also wanted to have the printer's height measured exactly. My printer has had a value of #329.260 Z max length [mm]# stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in memory. (Use Machine -> Firmware configuration to change printer's settings in CURA)
+I also wanted to have the printer's height measured exactly. My printer has had a value of `329.260 Z max length [mm]` stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in memory. (Use Machine -> Firmware configuration to change printer's settings in CURA)
 
 Run these commands to first home the head and then move it down:
 
@@ -116,7 +118,26 @@ G1 X0 Y0 Z20 ; Move extruder down to 30mm height
 
 The printer will move the print nozzle at what it *thinks* is 3cm distance from the glass. But since we've messed with the height parameter, the actual distance will be smaller. 
 
-On the LCD screen select #Position# -> #Z position#. **Gently** turn the dial counter-clockwise to move the head down. Do it slowly!
+On the LCD screen select `Position` -> `Z position`. **Gently** turn the dial counter-clockwise to move the head down. Do it slowly!
 
-Multiple advice on the web suggest using "paper test"
+Multiple advice on the web suggest using "paper test" - you place the piece of thin paper on the glass and move the nozzle down until it holds the paper firmly. I found a better way - it turns out that the sound of the fan on the printing head changes when you firmly touch the glass surface. Attention - you don't need to push down so hard that Z-probe button on the effector clicks; gentle but firm touch is enough.
+
+**Write down** the `Z position` number you got on the screen. Get a calculator and substract it from the rounded up `Z max length [mm]` value you placed into printer's EEPROM memory. This is your printer's correct print height.
+
+As the result we now know exact values for four of the seven variables needed by calibration formula.
+
+## Step four - online calculator by *Escher3D*
+
+Open the link to online calculator and start filling values:
+
+`Firmware type:` choose Repetier
+`Steps/mm (for Repetier only):` enter `100`		
+`Initial endstop corrections:` enter the values for X, Y, Z we just measured with the metal rod or ruler	
+`Initial diagonal rod length:` if you use standard Micromake rods, enter `217`. If you use something custom, measure length from hole to hole in mm.		
+`Initial delta radius:` for the dome-shaped Micromake effector (with two fans on the sides) it is `95`mm		
+`Initial homed height:` it is the height you just calculated.
+`Initial tower angular position corrections:` leave zeroes there.
+`Printable bed radius:` because I have paper clips around my glass, my print area is reduced. So in my case I entered `75`mm, but you can try `80`mm		
+`Number of probe points:` Change this to `10`		
+`Number of factors to calibrate:` Change to `7`		
 
