@@ -132,14 +132,77 @@ Open the link to online calculator and start filling values:
 
 Setting | What to enter
 --- | ---
-`Firmware type:` | choose Repetier
-`Steps/mm (for Repetier only):` | enter `100`		
-`Initial endstop corrections:` | enter the values for X, Y, Z we just measured with the metal rod or ruler	
-`Initial diagonal rod length:` | if you use standard Micromake rods, enter `217`. If you use something custom, measure length from hole to hole in mm.		
-`Initial delta radius:` | for the dome-shaped Micromake effector (with two fans on the sides) it is `95`mm		
-`Initial homed height:` | it is the height you just calculated.
-`Initial tower angular position corrections:` | leave zeroes there.
-`Printable bed radius:` | because I have paper clips around my glass, my print area is reduced. So in my case I entered `75`mm, but you can try `80`mm		
-`Number of probe points:` | change this to `10`		
-`Number of factors to calibrate:` | change to `7`		
+Firmware type: | choose Repetier
+Steps/mm: | enter `100`		
+Initial endstop corrections: | enter the values for X, Y, Z we just measured with the metal rod or ruler	
+Initial diagonal rod length: | if you use standard Micromake rods, enter `217`. If you use something custom, measure length from hole to hole in mm.		
+Initial delta radius: | for the dome-shaped Micromake effector (with two fans on the sides) it is `95`mm		
+Initial homed height: | it is the height you just calculated.
+Initial tower angular position corrections: | leave zeroes there.
+Printable bed radius: | because I have paper clips around my glass, my print area is reduced. So in my case I entered `75`mm, but you can try `80`mm		
+Number of probe points: | change this to `10`		
+Number of factors to calibrate: | change to `7`		
+
+The calculator will suggest you ten points to probe on the print bed and will ask you to fill the distance between the glass and the print nozzle. For example, points like `X: 64.95;	Y37.50`.
+
+I found it boring to move the head to each of those ten points using just LCD screen menu. I copied the list of suggested coordinates in Notepad and made a list of G-codes:
+
+~~~~
+G28
+G1 X0.00	Y75.00 Z20   ; Hover over Point 0
+~~~~
+
+~~~~
+G28
+G1 X64.95	Y37.50 Z20   ; Hover over Point 1
+~~~~
+
+~~~~
+G28
+G1 X64.95	Y-37.50 Z20   ; Hover over Point 2
+~~~~
+
+~~~~
+G28
+G1 X0.00	Y-75.00 Z20   ; Hover over Point 3
+~~~~
+
+~~~~
+G28
+G1 X-64.95	Y-37.50 Z20   ; Hover over Point 4
+~~~~
+
+~~~~
+G28
+G1 X-64.95	Y37.50 Z20   ; Hover over Point 5
+~~~~
+
+~~~~
+G28
+G1 X0.00	Y37.50 Z20   ; Hover over Point 6
+~~~~
+
+~~~~
+G28
+G1 X32.48	Y-18.75 Z20   ; Hover over Point 7
+~~~~
+
+~~~~
+G28
+G1 X-32.48	Y-18.75 Z20   ; Hover over Point 8
+~~~~
+
+~~~~
+G28
+G1 X0	Y0 Z20   ; Hover over Point 9
+G28 ; return back home
+~~~~
+
+Have you noticed the `Z20` in each of ten coordinates? It made the head to stop 20mm over the glass (at least, printer thought that it was 20mm...) and allowed me to move the head down manually using LCD screen menu, `Position` -> `Z position`.
+
+If the nozzle touched the glass plate firmly, but the LCD screen showed me that the distance was still, say, 1.23mm, I entered **negative** 1.23 value into the form.
+
+There is only one caveat. `Position` -> `Z position` will not let you dive below zero. That's a problem - because if it shows zero height and your print nozzle is still in the air, you can't precisely measure the distance. Soultion? Before running the calibration, **add 10mm to `Z max length [mm]` value** in the printer's memory (EEPROM) and home the effector. Then, if your nozzle touched the glass, and the screen shows 1**1.23**mm, enter **negative 1.23mm** into the form. If the nozzle touched the glass and the screen reads value below 10mm, say, 8mm, enter **positive** 2mm in the form (10mm minus 8mm equals 2mm).
+
+If you did everything right, you must have corrective values for each of the ten test points. Hit *Calculate* under the form.
 
