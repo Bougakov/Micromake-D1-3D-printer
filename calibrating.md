@@ -4,7 +4,7 @@ This HOWTO was written for [Micromake users' group on Facebook](https://www.face
 
 For a long time I wasn't able to print something with a footprint larger than 5cm on my Micromake D1. "Auto level" function in CURA never worked for me quite well. This is what I was getting with a (test plate model from Thingiverse)[http://www.thingiverse.com/thing:1549840] even with the best 0.04mm tolerance:
 
-![Full plate test](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling0.jpg)
+![Full plate test](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling0.png)
 
 And now I've managed to get this quality with 0.15mm layer even with full-plate prints:
 
