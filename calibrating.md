@@ -1,4 +1,4 @@
-# Manual calibration using Repetier Host
+# Manual calibration of Micromake D1 3D printer
 
 This HOWTO was written for [Micromake users' group on Facebook](https://www.facebook.com/groups/173676226330714/).
 
@@ -67,15 +67,15 @@ This will reset the printer completely.
 
 ## Step two - measuring exact offsets of all three endstops:
 
-Now let's bring all pulley to the 20cm height (or, at least, what your printer *believes* is 20cm height). `X0 Y0` tell the head to stay at the point with the coordinates of `0,0` and `Z200` tells it to stay 200mm from below.
+Now let's bring all pulley to the 20cm height (or, at least, what your printer *believes* is 20cm height). `X0 Y0` parameters of the following command tell the head to stay at the point with the coordinates of `0, 0` and `Z200` parameter tells it to stay 200mm from below.
 
 ~~~~
 G1 X0 Y0 Z200 ; Move extruder down to 20cm height
 ~~~~
 
-Now comes the tricky part. Look at the picture above, and relative to the position of the LCD screen, decide which tower is X, which is Y, and which is Z. Put a paper sticker with a letter on each one - it helps.
+Now comes the tricky part. Look at the schematics above, and relative to the position of the LCD screen, decide which tower is `X`, which is `Y`, and which is `Z`. Put a paper sticker with a letter on each one - it helps.
 
-Let's start with X tower. Place a rod firmly into the slot of the aluminum beam (I used steel ruler):
+Let's start with `X` tower. Place a rod firmly into the slot of the aluminum beam (I used steel ruler):
 
 ![Steel ruler](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling2.jpg)
 
@@ -85,7 +85,7 @@ Next, run this command:
 M99 X0 ; Disables stepper motor for tower X for 10 seconds.
 ~~~~
 
-Stepper motors for towers Y and Z will still work. But motor for tower X will turn off for 10 seconds and allow you to bring the pulley down, so it touches your metal rod (or ruler). Hold it firmly and wait till the stepper "wakes up". Then gently remove the rod.
+Stepper motors for towers `Y` and `Z` will still work. But motor for tower `X` will turn off for 10 seconds and allow you to bring the pulley down, so it touches your metal rod (or ruler). Hold it firmly and wait till the stepper "wakes up". Then gently remove the rod.
 
 Repeat the procedure for remaining towers one by one:
 
@@ -94,7 +94,7 @@ M99 Y0 ; Disables stepper motor for tower Y for 10 seconds.
 M99 Z0 ; Disables stepper motor for tower Z for 10 seconds.
 ~~~~
 
-At this step you don't really need to know the length of your rod (or ruler). You just ensured that the distance between each pulley and the bottom is uniform. 
+At this step you don't really need to know the exact length of your rod (or ruler). You just ensured that the distance between each pulley and the bottom is uniform. 
 
 Next, run this command:
 
@@ -112,9 +112,9 @@ Tower 3:83
 
 These are exact offsets measured by the printer. Write them down.
 
-## Step three: measuring the printer height manually.
+## Step three: measuring the printer's height manually.
 
-I also wanted to have the printer's height measured exactly. My printer has had a value of `329.260 Z max length [mm]` stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in memory. (Use `Machine` -> `Firmware configuration` to change printer's settings in CURA.)
+I also wanted to have the printer's height measured exactly. My printer has had a value of `329.260 Z max length [mm]` stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in EEPROM. (Use `Machine` -> `Firmware configuration` menu to change printer's settings in CURA.)
 
 Run these commands to first home the head and then move it down:
 
@@ -139,12 +139,12 @@ Open the link to online calculator and start filling values:
 
 Setting | What to enter
 --- | ---
-Firmware type: | choose Repetier
+Firmware type: | choose `Repetier`
 Steps/mm: | enter `100`		
-Initial endstop corrections: | enter the values for X, Y, Z we just measured with the metal rod or ruler	
+Initial endstop corrections: | enter the values for X, Y, Z which we just have measured with the metal rod or ruler	
 Initial diagonal rod length: | if you use standard Micromake rods, enter `217`. If you use something custom, measure length from hole to hole in mm.		
 Initial delta radius: | for the dome-shaped Micromake effector (with two fans on the sides) it is `95`mm		
-Initial homed height: | it is the height you just calculated.
+Initial homed height: | it is the height you just calculated. Enter it here.
 Initial tower angular position corrections: | leave zeroes there.
 Printable bed radius: | because I have paper clips around my glass, my print area is reduced. So in my case I entered `75`mm, but you can try `80`mm		
 Number of probe points: | change this to `10`		
@@ -152,7 +152,7 @@ Number of factors to calibrate: | change to `7`
 
 The calculator will suggest you ten points to probe on the print bed and will ask you to fill the distance between the glass and the print nozzle. For example, points like `X: 64.95;	Y37.50`.
 
-I found it boring to move the head to each of those ten points using just LCD screen menu. I copied the list of suggested coordinates in Notepad and made a list of G-codes:
+I found it boring to move the head to each of those ten points using just LCD screen menu and a dial. I copied the list of suggested coordinates to Windows Notepad and made a list of G-codes:
 
 ~~~~
 G28
@@ -221,7 +221,7 @@ New endstop corrections |	Save `X:`, `Y:` and `Z:` to `Tower X endstop offset`, 
 New diagonal rod length  |	Save to `Diagonal rod length`	
 New delta radius | Save to `Horizontal rod radius at 0,0`
 New homed height | Save this value in `Z max length`
-New tower position angle corrections | This is the trickiest part. You need to either add or substract these values from values stored in `Alpha A(210)`, `Alpha B(330)` and `Alpha C(90)`. If, for example, the wizard gave you `Z: -0.5`, it means that you need to substract 0.5 degree form the angle of tower `Z (C)`.
+New tower position angle corrections | This is the trickiest part. You need to either add or substract these values from values stored in `Alpha A(210)`, `Alpha B(330)` and `Alpha C(90)`. If, for example, the wizard gave you `Z: -0.5`, it means that you need to substract 0.5 degree form the angle of tower `Z (C)`, which, by default, is 90 degrees.
 
 You might be surprised that you might have to alter the values of `Z max length` and endstop offsets that you *precisely measured before* (?!)  Actually, it makes sense. If the wizard decides that your towers are not absolutely vertical, it may decide to compensate these imperfections and altering those values will make sense. If you don't want to think about math and trigonometry, just let it go.
 
@@ -234,12 +234,12 @@ M323 S1 P1 ; Enables distortion correction permanently
 
 **If you aren't tired and want the perfect results, home the printer, restart it, and repeat this Step 4 once again.** I've got an amazing precision after just 2 attempts. On the final step the tool gave me the following estimate:
 
-~~~~
-Success! Calibrated 7 factors using 10 points, deviation before 0.44, after 0.04
-~~~~
+> Success! Calibrated 7 factors using 10 points, deviation before 0.44, after 0.04
 
 Unlike the autolevel in CURA, this "0.04" result means that I am getting this tolerance not just on a given radius, **but in each and every point of the platform**. 
 
-This is an 11cm by 11cm print, with perfect adhesion of the ABS to a simple hair spray surface, with zero curling of the corners - all thanks to a near-perfect leveling of the print head. It doesn't scratch the glass, and extrusion width is perfect in every point:
+This is an 11cm by 11cm print, with perfect adhesion of the ABS to a simple hair spray surface, with zero curling of the corners - all thanks to a near-perfect leveling of the print head. It doesn't scratch the glass, and extrusion width is perfect in every point. 
+
+And I am getting this result on the cheapest "pulley" edition of Micromake D1:
 
 ![Results](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling3.jpg)
