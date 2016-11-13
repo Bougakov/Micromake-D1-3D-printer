@@ -19,7 +19,7 @@ You will need:
 * something long, like 30cm steel ruler or a piece of 30-40cm metal rod
 * calculator (Windows #calc.exe# is just fine)
 * any software that can send commands to COM port. I was using Repetier Host, but you can even use Arduino's *Serial monitor* - Just set the correct port speed (250 000 baud) and connect.
-* [This brilliant online calculator)[http://escher3d.com/pages/wizards/wizarddelta.php]
+* [This brilliant online calculator](http://escher3d.com/pages/wizards/wizarddelta.php) (open it in new tab of your browser)
 * 5-10 minutes of time
 
 # Some theory
@@ -36,11 +36,11 @@ To make things worse, all those variables are poorly named. You might have got u
 
 ![Names explained](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/Explainer.png)
 
-# Step one - let's purge all autoleveling data your printer is storing
+## Step one - let's purge all autoleveling data your printer is storing
 
-## Measuring exact offsets of all three endstops:
+First, check that the tension of all three belts is satisfactory. If you are printing with ABS, make sure your printer is warmed up and you are conducting the measurements on the hot printer (because metal parts expand and dimensions slightly change). On the LCD screen select #Quick settings# -> #Preheat ABS# to do that.
 
-First, check that the tension of all three belts is satisfactory. If you are connected to COM port, fire this command:
+If you are connected to COM port, fire this command:
 
 ~~~~
 G28 ; Home
@@ -55,6 +55,8 @@ G33 R0 ; Resets bump map
 ~~~~
 
 This will reset the printer completely. 
+
+## Step two - measuring exact offsets of all three endstops:
 
 Now let's bring all pulley to the 20cm height (or, at least, what your printer *believes* is 20cm height). "X0 Y0" tell the head to stay at the point with the coordinates of 0,0 and Z200 tells it to stay 200mm from below.
 
@@ -101,6 +103,20 @@ Tower 3:83
 
 These are exact offsets measured by the printer. Write them down.
 
-## Measuring the printer height manually.
+## Step three: measuring the printer height manually.
 
-I also wanted to have the printer's height measured exactly. My printer has had a value of #329.260 Z max length [mm]# stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in memory.
+I also wanted to have the printer's height measured exactly. My printer has had a value of #329.260 Z max length [mm]# stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in memory. (Use Machine -> Firmware configuration to change printer's settings in CURA)
+
+Run these commands to first home the head and then move it down:
+
+~~~~
+G28 ; Home
+G1 X0 Y0 Z20 ; Move extruder down to 30mm height
+~~~~
+
+The printer will move the print nozzle at what it *thinks* is 3cm distance from the glass. But since we've messed with the height parameter, the actual distance will be smaller. 
+
+On the LCD screen select #Position# -> #Z position#. **Gently** turn the dial counter-clockwise to move the head down. Do it slowly!
+
+Multiple advice on the web suggest using "paper test"
+
