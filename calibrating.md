@@ -1,8 +1,8 @@
 # Manual calibration using Repetier Host
 
-This HOWTO was written for [Micromake users' group on Facebook](https://www.facebook.com/groups/173676226330714/) instead.
+This HOWTO was written for [Micromake users' group on Facebook](https://www.facebook.com/groups/173676226330714/).
 
-For a long time I wasn't able to print something with a footprint larger than 5cm on my Micromake D1. "Auto level" function in CURA never worked for me quite well. This is what I was getting with a (test plate model from Thingiverse)[http://www.thingiverse.com/thing:1549840] even with the best 0.04mm tolerance:
+For a long time I wasn't able to print something with a footprint larger than 5cm on my Micromake D1. "Auto level" function in CURA never worked for me quite well. This is what I was getting with a [test plate model from Thingiverse](http://www.thingiverse.com/thing:1549840) even with the best 0.04mm tolerance:
 
 ![Full plate test](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling0.png)
 
@@ -204,5 +204,35 @@ If the nozzle touched the glass plate firmly, but the LCD screen showed me that 
 
 There is only one caveat. `Position` -> `Z position` will not let you dive below zero. That's a problem - because if it shows zero height and your print nozzle is still in the air, you can't precisely measure the distance. Soultion? Before running the calibration, **add 10mm to `Z max length [mm]` value** in the printer's memory (EEPROM) and home the effector. Then, if your nozzle touched the glass, and the screen shows 1**1.23**mm, enter **negative 1.23mm** into the form. If the nozzle touched the glass and the screen reads value below 10mm, say, 8mm, enter **positive** 2mm in the form (10mm minus 8mm equals 2mm).
 
-If you did everything right, you must have corrective values for each of the ten test points. Hit *Calculate* under the form.
+If you did everything right, you must have corrective values for each of the ten test points. 
 
+Hit *Calculate* under the form, it will give you the following output, **which needs to be saved to appropriate fields in EEPROM memory of the printer**. Make sure you enter the values with decimal point, not comma. This is important for Russian users, because Russian version of Windows makes decumal numbers display in the former way - if you blindly will copy&paste the values, you will confuse your printer.
+
+Value | What to do with it:
+--- | ---
+New endstop corrections |	Save `X:`, `Y:` and `Z:` to `Tower X endstop offset`, `Tower Y endstop offset` and `Tower Z endstop offset`, accordingly	
+New diagonal rod length  |	Save to `Diagonal rod length`	
+New delta radius | Save to `Horizontal rod radius at 0,0`
+New homed height | Save this value in `Z max length`
+New tower position angle corrections | This is the trickiest part. You need to either add or substract these values from values stored in `Alpha A(210)`, `Alpha B(330)` and `Alpha C(90)`. If, for example, the wizard gave you `Z: -0.5`, it means that you need to substract 0.5 degree form the angle of tower `Z (C)`.
+
+You might be surprised that you might have to alter the values of `Z max length` and endstop offsets that you *precisely measured before* (?!)  Actually, it makes sense. If the wizard decides that your towers are not absolutely vertical, it may decide to compensate these imperfections and altering those values will make sense. If you don't want to think about math and trigonometry, just let it go.
+
+Finish it by issuing 2 commands that will turn auto leveling back on:
+
+~~~~
+M320 S2 ; Activates auto level permanently
+M323 S1 P1 ; Enables distortion correction permanently
+~~~~
+
+**If you aren't tired and want the perfect results, home the printer, restart it, and repeat this Step 4 once again.** I've got an amazing precision after just 2 attempts. On the final step the tool gave me the following estimate:
+
+~~~~
+Success! Calibrated 7 factors using 10 points, deviation before 0.44, after 0.04
+~~~~
+
+Unlike the autolevel in CURA, this "0.04" result means that I am getting this tolerance not just on a given radius, **but in each and every point of the platform**. 
+
+This is an 11cm by 11cm print, with perfect adhesion of the ABS to a simple hair spray surface, with zero curling of the corners - all thanks to a near-perfect leveling of the print head. It doesn't scratch the glass, and extrusion width is perfect in every point:
+
+![Results](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling3.jpg)
