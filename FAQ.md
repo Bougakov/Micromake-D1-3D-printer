@@ -52,6 +52,8 @@ Assembly videos and official software are on Google Drive: [https://drive.google
 
 Google Drive [has](https://www.facebook.com/groups/173676226330714/permalink/304678969897105/?comment_id=304767046554964&comment_tracking={"tn":"R"}) <span class="_7xn">Repetier-Firmware version 0.92.9 and <span class="_7xn">Micromake version 2.0.2 at the time of writing.
 
+R.Mendelis shared [CURA version 15.04.0917](https://www.facebook.com/groups/173676226330714/permalink/335784940119841/). It is in Chinese, check screenshot to see how to switch it to English.
+
 GitHub repository of printer’s firmware (it is unknown whether it is fresh and/or original): [https://github.com/coldnew/MICROMAK...](https://github.com/coldnew/MICROMAKE)
 
 Micromake uses custom modified software called “CURA” - this software was originally developed for Ultimaker brand of printers and was “borrowed” by Chinese company that makes Micromake D1\. “CURA” software has a special module used to calibrate printer and flash it with firmware. Please be aware that if you install heated bed upgrade, you need to enable checkbox in CURA and flash updated firmware to printer - see screenshot
