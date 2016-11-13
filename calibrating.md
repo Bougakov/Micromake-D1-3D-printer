@@ -24,9 +24,83 @@ You will need:
 
 # Some theory
 
+Delta printers have a lot of variables to play with:
 
+![Rods and offsets](https://www.repetier.com/firmware/v092/images/deltacolumnnames2.png)
+
+...and imperfections with lengths and towers misplaced by even a fraction of a degree can cause a lot of trouble:
+
+Basically, calibration means solving an equation with **seven** variables: three endstop corrections, delta radius, two tower angular position corrections, and diagonal rod length. It is some serious math.
+
+To make things worse, all those variables are poorly named. You might have got used with towers named X, Y and Z. To make things worse, the Cartesian axes in which the print head moves, are *also* named X, Y and Z. And, for some reason, towers are sometimes named A, B and C. And to seriously fuck your brain, the angles of tower placement (which are 90, 210 and 330 degrees), are also named A, B, and C. On top of that, some adjustments are measured in millimeters, and some - in motor steps. Don't ask me why.
+
+![Names explained](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/Explainer.png)
 
 # Step one - let's purge all autoleveling data your printer is storing
 
+## Measuring exact offsets of all three endstops:
 
+First, check that the tension of all three belts is satisfactory. If you are connected to COM port, fire this command:
 
+~~~~
+G28 ; Home
+~~~~
+
+It will tell the printer to home the printing head. Then use these:
+
+~~~~
+M321 ; Deactivates auto level (adding S2 parameter will make change permanent)
+M322 ; Resets auto level matrix  (adding S3 parameter will make change permanent)
+G33 R0 ; Resets bump map
+~~~~
+
+This will reset the printer completely. 
+
+Now let's bring all pulley to the 20cm height (or, at least, what your printer *believes* is 20cm height). "X0 Y0" tell the head to stay at the point with the coordinates of 0,0 and Z200 tells it to stay 200mm from below.
+
+~~~~
+G1 X0 Y0 Z200 ; Move extruder down to 20cm height
+~~~~
+
+Now comes the tricky part. Look at the picture above, and relative to the position of the LCD screen, decide which tower is X, which is Y, and which is Z. Put a paper sticker with a letter on each one - it helps.
+
+Let's start with X tower. Place a rod firmly into the slot of the aluminum beam (I used steel ruler):
+
+![Steel ruler](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling1.jpg)
+
+Next, run this command:
+
+~~~~
+M99 X0 ; Disables stepper motor for tower X for 10 seconds.
+~~~~
+
+Stepper motors for towers Y and Z will still work. But motor for tower X will turn off for 10 seconds and allow you to bring the pulley down, so it touches your metal rod (or ruler). Hold it firmly and wait till the stepper "wakes up". Then gently remove the rod.
+
+Repeat the procedure for remaining towers:
+
+~~~~
+M99 Y0 ; Disables stepper motor for tower Y for 10 seconds.
+M99 Z0 ; Disables stepper motor for tower Z for 10 seconds.
+~~~~
+
+At this step you don't really need to know the length of your rod (or ruler). You just ensured that the distance between each pulley and the bottom is uniform. 
+
+Next, run this command:
+
+~~~~
+G132 S1 ; Calculates offsets  and stores them in EEPROM. Wreite them down!
+~~~~
+
+It will move all pulleys up, until they reach the endstops, and return something like this:
+
+~~~~
+Tower 1:16
+Tower 2:0
+Tower 3:83
+~~~~
+
+These are exact offsets measured by the printer. Write them down.
+
+## Measuring the printer height manually.
+
+I also wanted to have the printer's height measured exactly. My printer has had a value of #329.260 Z max length [mm]# stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in memory.
