@@ -2,7 +2,7 @@
 
 This HOWTO was written for [Micromake users' group on Facebook](https://www.facebook.com/groups/173676226330714/).
 
-For a long time I wasn't able to print something with a footprint larger than 5cm on my Micromake D1. "Auto level" function in CURA never worked for me quite well. This is what I was getting with a [test plate model from Thingiverse](http://www.thingiverse.com/thing:1549840) even with the best 0.04mm tolerance:
+For a long time I wasn't able to print something with a footprint larger than 5cm in diameter on my Micromake D1. "Auto level" function in CURA never worked for me quite well. This is what I was getting with a [test plate model from Thingiverse](http://www.thingiverse.com/thing:1549840) even with the best 0.04mm tolerance:
 
 ![Full plate test](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling0.png)
 
@@ -12,7 +12,7 @@ And now I've managed to get this quality with 0.15mm layer even with full-plate 
 
 I was inspired by this video from Repetier project. Unfortunately, it relies on some commands that Micromake D1 doesn't support, so I'll be using just the part that describes measuring offsets of each vertical tower.
 
-[![Video from Repetier](http://img.youtube.com/vi/L9URtv2LqKc/0.jpg)](http://www.youtube.com/watch?v=L9URtv2LqKc?t=5)
+[![Video from Repetier](http://img.youtube.com/vi/L9URtv2LqKc/0.jpg)](http://www.youtube.com/watch?v=L9URtv2LqKc&t=5)
 
 You will need:
 
