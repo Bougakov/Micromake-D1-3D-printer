@@ -1,4 +1,4 @@
-Manual calibration of Micromake D1 3D printer
+# Manual calibration of Micromake D1 3D printer
 
 This HOWTO was written for [Micromake users’ group on Facebook](https://www.facebook.com/groups/173676226330714/).
 
@@ -21,7 +21,7 @@ You will need:
 - [This brilliant online calculator](http://escher3d.com/pages/wizards/wizarddelta.php) (open it in new tab of your browser)
 - 5-10 minutes of time
 
-Some theory
+## Some theory
 
 Delta printers have a lot of variables to play with:
 
@@ -41,7 +41,7 @@ To make things worse, all those variables are poorly named. You might have got 
 
 ![Names explained](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/Explainer.png)
 
-Step one — let’s purge all autoleveling data your printer is storing
+## Step one — let’s purge all autoleveling data your printer is storing
 
 First, check that the tension of all three belts is satisfactory. Inspect all screws, tighten those that went loose. Inspect all endstops as well. This is important!
 
@@ -63,7 +63,7 @@ G33 R0 ; Resets bump map
 
 This will reset the printer completely. 
 
-Step two — measuring exact offsets of all three endstops
+## Step two — measuring exact offsets of all three endstops
 
 Now let’s bring all pulleys to the 20cm height (or, at least, what your printer *believes* is 20cm height). `X0 Y0` parameters of the following command tell the head to stay at the point with the coordinates of `0, 0` and `Z200` parameter tells it to stay 200mm from below.
 
@@ -110,7 +110,7 @@ Tower 3:83
 
 These are exact offsets measured by the printer. Write them down.
 
-Step three — measuring the printer’s height manually
+## Step three — measuring the printer’s height manually
 
 I also wanted to have the printer’s height measured exactly. My printer has had a value of `329.260 Z max length [mm]` stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in EEPROM. (Use `Machine` -> `Firmware configuration` menu to change printer’s settings in CURA.)
 
@@ -131,7 +131,7 @@ Multiple advice on the web suggest using «paper test» — you place the piec
 
 As the result we now know exact values for four of the seven variables needed by calibration formula.
 
-Step four — online calculator by *Escher3D*
+## Step four — online calculator by *Escher3D*
 
 Open the link to online calculator and start filling values:
 
@@ -234,7 +234,7 @@ M323 S1 P1 ; Enables distortion correction permanently
 
 > Success! Calibrated 7 factors using 10 points, deviation before 0.44, after 0.04
 
-Unlike the autolevel in CURA, this «0.04» result means that I am getting this tolerance not just on a given radius, **but in each and every point of the platform**. 
+Unlike the autolevel in CURA, this `0.04` result means that I am getting this tolerance not just on a given radius, **but in each and every point of the platform**. 
 
 This is an 11cm by 11cm print, with perfect adhesion of the ABS to a simple hair spray surface, with zero curling of the corners — all thanks to a near-perfect leveling of the print head. It doesn’t scratch the glass, and extrusion width is perfect in every point. 
 
