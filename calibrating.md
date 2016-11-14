@@ -6,7 +6,7 @@ For a long time I wasn't able to print something with a footprint larger than 5c
 
 ![Full plate test](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling0.png)
 
-And now I've managed to get this quality with 0.15mm layer even with full-plate prints:
+And now I've managed to get *this* quality with layer thickness set to 0.15mm even with full-plate prints:
 
 ![Full plate test](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/leveling1.jpg)
 
@@ -65,7 +65,7 @@ G33 R0 ; Resets bump map
 
 This will reset the printer completely. 
 
-## Step two - measuring exact offsets of all three endstops:
+## Step two - measuring exact offsets of all three endstops
 
 Now let's bring all pulley to the 20cm height (or, at least, what your printer *believes* is 20cm height). `X0 Y0` parameters of the following command tell the head to stay at the point with the coordinates of `0, 0` and `Z200` parameter tells it to stay 200mm from below.
 
@@ -112,7 +112,7 @@ Tower 3:83
 
 These are exact offsets measured by the printer. Write them down.
 
-## Step three: measuring the printer's height manually.
+## Step three: measuring the printer's height manually
 
 I also wanted to have the printer's height measured exactly. My printer has had a value of `329.260 Z max length [mm]` stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in EEPROM. (Use `Machine` -> `Firmware configuration` menu to change printer's settings in CURA.)
 
