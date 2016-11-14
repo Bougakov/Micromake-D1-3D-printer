@@ -18,7 +18,6 @@ You will need:
 
  - something long, like 30cm steel ruler or a piece of 30-40cm metal rod
  - calculator (Windows `calc.exe` is just fine)
- - any software that can send commands to COM port. I was using Repetier Host, but you can even use Arduino’s *Serial monitor* — just set the correct port speed (250 000 baud) and connect.
  - [This brilliant online calculator](http://escher3d.com/pages/wizards/wizarddelta.php) (open it in new tab of your browser)
  - 5-10 minutes of time
 
