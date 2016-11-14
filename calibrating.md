@@ -16,11 +16,11 @@ I was inspired by this video from Repetier project. Unfortunately, it relies 
 
 You will need:
 
-- something long, like 30cm steel ruler or a piece of 30-40cm metal rod
-- calculator (Windows `calc.exe` is just fine)
-- any software that can send commands to COM port. I was using Repetier Host, but you can even use Arduino’s *Serial monitor* — just set the correct port speed (250 000 baud) and connect.
-- [This brilliant online calculator](http://escher3d.com/pages/wizards/wizarddelta.php) (open it in new tab of your browser)
-- 5-10 minutes of time
+ - something long, like 30cm steel ruler or a piece of 30-40cm metal rod
+ - calculator (Windows `calc.exe` is just fine)
+ - any software that can send commands to COM port. I was using Repetier Host, but you can even use Arduino’s *Serial monitor* — just set the correct port speed (250 000 baud) and connect.
+ - [This brilliant online calculator](http://escher3d.com/pages/wizards/wizarddelta.php) (open it in new tab of your browser)
+ - 5-10 minutes of time
 
 ## Some theory
 
@@ -32,12 +32,12 @@ Delta printers have a lot of variables to play with:
 
 Basically, calibration means solving an equation with **seven** variables: 
 
-- three endstop corrections, 
-- delta radius, 
-- two tower angular position corrections, and 
-- diagonal rod length. 
+ - three endstop corrections, 
+ - delta radius, 
+ - two tower angular position corrections, and 
+ - diagonal rod length. 
 
-It is some serious math.
+It involves some serious math.
 
 To make things worse, all those variables are poorly named. You might have got used with towers named X, Y and Z. To make things worse, the Cartesian axes in which the print head moves, are *also* named X, Y and Z. And, for some reason, towers are sometimes named not X, Y and Z, but A, B and C. And to seriously fuck your brain, the angles of tower placement (which are 90, 210 and 330 degrees), are also named A, B, and C. On top of that, some adjustments are measured in millimeters, and some — in motor steps. Don’t ask me why.
 
