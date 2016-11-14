@@ -15,6 +15,7 @@ I was inspired by this video from Repetier project. Unfortunately, it relies 
 [![Video from Repetier](http://img.youtube.com/vi/L9URtv2LqKc/0.jpg)](http://www.youtube.com/watch?v=L9URtv2LqKc&t=5)
 
 You will need:
+
 - something long, like 30cm steel ruler or a piece of 30-40cm metal rod
 - calculator (Windows `calc.exe` is just fine)
 - any software that can send commands to COM port. I was using Repetier Host, but you can even use Arduino’s *Serial monitor* — just set the correct port speed (250 000 baud) and connect.
@@ -30,6 +31,7 @@ Delta printers have a lot of variables to play with:
 ...and imperfections with lengths and towers misplaced by even a fraction of a degree can cause a lot of trouble.
 
 Basically, calibration means solving an equation with **seven** variables: 
+
 - three endstop corrections, 
 - delta radius, 
 - two tower angular position corrections, and 
