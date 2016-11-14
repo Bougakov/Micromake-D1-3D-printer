@@ -16,7 +16,7 @@ Printers get shipped with either old or new type of main controller board.
 
 ### Things to consider before buying:
 
-*   You can [earn cash back of about 5%](https://www.ebates.com/r/FACEBO550?eeid=28187) when buying 3D printer on AliExpress, using Ebates or other service. &#1056;&#1091;&#1089;&#1089;&#1082;&#1086;&#1103;&#1079;&#1099;&#1095;&#1085;&#1099;&#1077; &#1087;&#1086;&#1082;&#1091;&#1087;&#1072;&#1090;&#1077;&#1083;&#1080; &#1084;&#1086;&#1075;&#1091;&#1090; &#1087;&#1086;&#1083;&#1091;&#1095;&#1080;&#1090;&#1100; [&#1082;&#1101;&#1096;&#1073;&#1101;&#1082; 7% &#1085;&#1072; Letyshops.](https://www.facebook.com/notes/alexander-bgk/Ð¼ÐµÐ½Ñ-Ñ‚ÑƒÑ‚-Ð·Ð°ÐºÐ¸Ð´Ð°Ð»Ð¸-Ð¿Ñ€Ð¾ÑÑŒÐ±Ð°Ð¼Ð¸-Ñ€Ð°ÑÑÐºÐ°Ð·Ð°Ñ‚ÑŒ-cashbackÐ¸-Ð¾Ñ‚Ð²ÐµÑ‡Ð°ÑŽ/888117147961047)
+*   You can [earn cash back of about 5%](https://www.ebates.com/r/FACEBO550?eeid=28187) when buying 3D printer on AliExpress, using Ebates or other service. Русскоязычные покупатели могут получить кэшбэк 7% на [Letyshops.](https://www.facebook.com/notes/alexander-bgk/cashback/888117147961047)
 *   Good discussions on what to buy with your Micromake: [here](https://www.facebook.com/groups/173676226330714/permalink/333773956987606/) and [here](https://www.facebook.com/groups/173676226330714/permalink/333812513650417/)
 
 ### Links to proven sellers:
@@ -39,7 +39,7 @@ YouTube video reviews:
 
 *   There is a PDF assembly manual in English and in Russian on Google Drive (link in next section).
 *   Official YouTube channel with instruction videos (English and Chinese): [https://www.youtube.com/channel/UCY...](https://www.youtube.com/channel/UCY9sDyEi81z3GjXhwGiP_RA/playlists) Note that original video files are in the official Google Drive folder.
-*   Playlists in Chinese on Yoku: [http://www.youku.com/playlist_show/...](http://www.youku.com/playlist_show/id_23218776.html)
+*   Playlists in Chinese on Yoku: [http://www.youku.com/playlist_show/...](http://www.youku.com/playlist_show/id_23218776.html)Русскоязычные покупатели могут получить кэшбэк 7% на Letyshops.Русскоязычные покупатели могут получить кэшбэк 7% на Letyshops.Русскоязычные покупатели могут получить кэшбэк 7% на Letyshops.Русскоязычные покупатели могут получить кэшбэк 7% на Letyshops.
 
 ### Common assembly mistakes; tips & tricks:
 
@@ -50,7 +50,7 @@ YouTube video reviews:
 
 Assembly videos and official software are on Google Drive: [https://drive.google.com/drive/fold...](https://drive.google.com/drive/folders/0B1DQUrzkDP-tNDU0NXhVcGhlc0k?usp=sharing).
 
-Google Drive [has](https://www.facebook.com/groups/173676226330714/permalink/304678969897105/?comment_id=304767046554964&comment_tracking={"tn":"R"}) <span class="_7xn">Repetier-Firmware version 0.92.9 and <span class="_7xn">Micromake version 2.0.2 at the time of writing.
+Google Drive [has](https://www.facebook.com/groups/173676226330714/permalink/304678969897105/?comment_id=304767046554964&comment_tracking={"tn":"R"}) Repetier-Firmware version `0.92.9` and Micromake version `2.0.2` at the time of writing.
 
 R.Mendelis shared [CURA version 15.04.0917](https://www.facebook.com/groups/173676226330714/permalink/335784940119841/). It is in Chinese, check screenshot to see how to switch it to English.
 
@@ -62,9 +62,11 @@ Micromake uses custom modified software called “CURA” - this software was or
 
 ### How to auto-level and calibrate printer. Quality issues with prints and how to solve them:
 
+[**HERE IS THE GUIDE ON CALIBRATION**](./calibrating.md)
+
 Explanation of what “horizontal radius”, “diagonal rod length” and other terms mean: [https://forum.repetier.com/discussi...](https://forum.repetier.com/discussion/435/initial-delta-value-setup) (see illustrations!). There are different naming conventions, for example “horizontal radius” [is referred to as “delta radius” in other projects](https://www.facebook.com/groups/173676226330714/permalink/326322951066040/?comment_id=326351537729848&comment_tracking={"tn":"R"}).
 
-Rod length should be [measured from hole to hole](https://www.facebook.com/groups/173676226330714/permalink/326218534409815/), on “pulley version” of Micromake D1 it is <span class="_7xn">215mm to <span class="_7xn">217mm (value in CURA is wrong, it says 210mm for some reason). Horizontal radius is about <span class="_7xn">95mm.
+Rod length should be [measured from hole to hole](https://www.facebook.com/groups/173676226330714/permalink/326218534409815/), on “pulley version” of Micromake D1 it is `215mm` to `217mm` (value in CURA is wrong, it says `210mm` for some reason). Horizontal radius is about `95mm`.
 
 *   [Official YouTube video](https://www.youtube.com/watch?v=UFPXBdeJmg0) (in Chinese) that describes calibration process
 *   [Another video](https://www.youtube.com/watch?v=TFeyNqYMFgU) (in English), describes calibration using CURA
@@ -89,9 +91,9 @@ Replacing stock square nuts [with t-nuts](https://www.facebook.com/photo.php?fbi
 
 #### Printing head and hot end (nozzle):
 
-Micromake D1 uses “E3D V5” printing head. It is shipped with the standard copper nozzle with 0.4mm diameter. It has Teflon tube inside. (See photos in this Russian article on hot end types - [http://3deshnik.ru/blogs/akdzg/razn...](http://3deshnik.ru/blogs/akdzg/raznoobrazie-xotendov-e3d))
+Micromake D1 uses “E3D V5” printing head ((documentation)[http://wiki.e3d-online.com/wiki/E3D-v5_Documentation]). It is shipped with the standard copper nozzle with 0.4mm diameter. It has Teflon tube inside. (See photos in this Russian article on hot end types - [http://3deshnik.ru/blogs/akdzg/razn...](http://3deshnik.ru/blogs/akdzg/raznoobrazie-xotendov-e3d))
 
-Consider buying a set of 0.2   0.3   0.4mm drill bits - they are useful with cleaning nozzle from debris.
+Consider buying a set of `0.2`,  `0.3` and `0.4`mm drill bits - they are useful with cleaning nozzle from debris.
 
 #### Belts:
 
@@ -101,7 +103,7 @@ Micromake D1 uses “GT2” type belts.
 
 #### Rods:
 
-Stock rods are 217mm in length.
+Stock rods are `217mm` in length.
 
 *   Using [traxxas](https://www.facebook.com/groups/173676226330714/permalink/276316932733309/) rods instead of stock rods ([more detailed post](https://www.facebook.com/groups/173676226330714/permalink/276316912733311/))
 *   Using additional [springs](https://www.facebook.com/photo.php?fbid=10209986622486255&set=oa.287323128299356&type=3&theater)
