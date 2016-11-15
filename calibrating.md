@@ -58,10 +58,15 @@ G28 ; Home
 It will tell the printer to home the printing head. Then use these:
 
 ~~~~
-M321 ; Deactivates auto level <!-- (adding S2 parameter will make change permanent) -->
-M322 ; Resets auto level matrix <!--  (adding S3 parameter will make change permanent) --> <!-- 
-G33 R0 ; Resets bump map -->
+M321 ; Deactivates auto level 
+M322 ; Resets auto level matrix
 ~~~~
+
+<!--
+M321 ; Deactivates auto level (adding S2 parameter will make change permanent)
+M322 ; Resets auto level matrix (adding S3 parameter will make change permanent) 
+G33 R0 ; Resets bump map 
+-->
 
 This will reset the printer completely. 
 
