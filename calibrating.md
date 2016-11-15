@@ -58,9 +58,9 @@ G28 ; Home
 It will tell the printer to home the printing head. Then use these:
 
 ~~~~
-M321 ; Deactivates auto level (adding S2 parameter will make change permanent)
-M322 ; Resets auto level matrix  (adding S3 parameter will make change permanent)
-G33 R0 ; Resets bump map
+M321 ; Deactivates auto level <!-- (adding S2 parameter will make change permanent) -->
+M322 ; Resets auto level matrix <!--  (adding S3 parameter will make change permanent) --> <!-- 
+G33 R0 ; Resets bump map -->
 ~~~~
 
 This will reset the printer completely. 
@@ -70,7 +70,7 @@ This will reset the printer completely.
 Now let's bring all pulleys to the 20cm height (or, at least, what your printer *believes* is 20cm height). `X0 Y0` parameters of the following command tell the head to stay at the point with the coordinates of `0, 0` and `Z200` parameter tells it to stay 200mm from below.
 
 ~~~~
-G1 X0 Y0 Z200 ; Move extruder down to 20cm height
+G1 X0 Y0 Z200 ; Move extruder down to 20cm height. Adjust value of "Z" if your rod / ruler won't fit
 ~~~~
 
 Now comes the tricky part. Look at the schematics above, and relative to the position of the LCD screen, decide which tower is `X`, which is `Y`, and which is `Z`. Put a paper sticker with a letter on each one - it helps.
