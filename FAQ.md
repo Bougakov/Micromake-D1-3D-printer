@@ -142,7 +142,7 @@ Stock rods are `217mm` in length.
 
 *   Microstepping (?): [https://www.facebook.com/zzcatvs/posts/995106527263309?pnref=story](https://www.facebook.com/zzcatvs/posts/995106527263309?pnref=story)
 
-#### Changing main board to 24-bit versions:
+#### Changing main board to 32-bit versions:
 
 Stock main board appears to be standard RAMPS 1.4.
 
