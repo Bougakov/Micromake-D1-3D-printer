@@ -119,13 +119,13 @@ These are exact offsets measured by the printer. Write them down.
 
 ## Step three - measuring the printer's height manually
 
-I also wanted to have the printer's height measured exactly. My printer has had a value of `329.260 Z max length [mm]` stored in memory. I added 2cm and rounded it up to 340mm and stored the new value in EEPROM. (Use `Machine` -> `Firmware configuration` menu to change printer's settings in CURA.)
+I also wanted to have the printer's height measured exactly. My printer has had a value of `329.260 Z max length [mm]` stored in memory. I added 1cm (10mm) and rounded it up to 340mm and stored the new value in EEPROM. (Use `Machine` -> `Firmware configuration` menu to change printer's settings in CURA.)
 
 Run these commands to first home the head and then move it down:
 
 ~~~~
 G28 ; Home
-G1 X0 Y0 Z20 ; Move extruder down to 30mm height
+G1 X0 Y0 Z20 ; Move extruder down to 30mm height (20mm actual + 10mm gap we've added by increasing 'Z max length')
 ~~~~
 
 The printer will move the print nozzle at what it *thinks* is 3cm distance from the glass. But since we've messed with the height parameter, the actual distance will be smaller. 
