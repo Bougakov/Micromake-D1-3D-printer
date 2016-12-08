@@ -2,6 +2,8 @@
 
 This FAQ was written for [Facebook group of the owners of this cheap and great 3D printer](https://www.facebook.com/groups/173676226330714/). Unfortunately, Facebook sucks as a place to post large texts so I am placing them here. Feel free to send your pull requests if you want to add something.
 
+[Старая русскоязычная группа поддержки в ВК](https://vk.com/micromake3d) (её создали китайские сотрудники магазина, но забросили) и [новая, которую ведут энтузиасты](https://vk.com/micromake_d1).
+
 ### Variants of Micromake D1 and its “clones”:
 
 Micromake D1 comes in  [3 versions](http://ali.ski/vzso1??&h=7AQHgTTr_&s=1):
