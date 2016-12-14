@@ -52,6 +52,8 @@ YouTube video reviews:
 
 Assembly videos and official software are on Google Drive: [https://drive.google.com/drive/fold...](https://drive.google.com/drive/folders/0B1DQUrzkDP-tNDU0NXhVcGhlc0k?usp=sharing).
 
+Although primary file repository with newer software apperats to be [on Chinese portal and file storage site, Baidu](http://pan.baidu.com/s/1hshTkFU#list/path=%2F).
+
 Google Drive [has](https://www.facebook.com/groups/173676226330714/permalink/304678969897105/?comment_id=304767046554964&comment_tracking={"tn":"R"}) Repetier-Firmware version `0.92.9` and Micromake version `2.0.2` at the time of writing.
 
 R.Mendelis shared [CURA version 15.04.0917](https://www.facebook.com/groups/173676226330714/permalink/335784940119841/). It is in Chinese, check screenshot to see how to switch it to English.
