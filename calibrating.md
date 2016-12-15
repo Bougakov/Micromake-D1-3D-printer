@@ -96,6 +96,9 @@ Repeat the procedure for remaining towers one by one:
 
 ~~~~
 M99 Y0 ; Disables stepper motor for tower Y for 10 seconds.
+~~~~
+
+~~~~
 M99 Z0 ; Disables stepper motor for tower Z for 10 seconds.
 ~~~~
 
@@ -143,6 +146,8 @@ G28 ; Home
 Multiple advice on the web suggest using "paper test" - you place the piece of thin paper on the glass and move the nozzle down until it holds the paper firmly. I found a better way - it turns out that the sound of the fan on the printing head changes when you firmly touch the glass surface. Attention - you don't need to push down so hard that Z-probe button on the effector clicks; gentle but firm touch is enough.
 
 **Write down** the `Z position` number you got on the screen. Get a calculator and substract it from the rounded up `Z max length [mm]` value you placed into printer's EEPROM memory. This is your printer's correct print height. (If you will get negative number somehow, remember the laws of arithmetics - subtracting negative numbers means adding them.)
+
+Other option is to use the `Configuration` -> `Z calib.` -> `Set Z=0` menu while the nozzle is touching the glass. Printer will adjust the height itself.
 
 As the result we now know exact values for four of the seven variables needed by calibration formula.
 
