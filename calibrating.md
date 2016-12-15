@@ -153,11 +153,11 @@ As the result we now know exact values for four of the seven variables needed by
 
 ## Step four - online calculator by *Escher3D*
 
-Open the link to online calculator and start filling values:
+Open the [link to online calculator](http://escher3d.com/pages/wizards/wizarddelta.php) and start filling these values:
 
 Setting | What to enter
 --- | ---
-Firmware type: | choose `Repetier`
+Firmware type: | choose `Repetier` (don't forget this one!)
 Steps/mm: | enter `100`		
 Initial endstop corrections: | enter the values for X, Y, Z which we just have measured with the metal rod or ruler	
 Initial diagonal rod length: | if you use standard Micromake rods, enter `217`. If you use something custom, measure length from hole to hole in mm.		
