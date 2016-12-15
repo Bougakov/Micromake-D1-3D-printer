@@ -125,16 +125,16 @@ Run these commands to first home the head and then move it down:
 
 ~~~~
 G28 ; Home
-G1 X0 Y0 Z20 ; Move extruder down to 30mm height (20mm actual + 10mm gap we've added by increasing 'Z max length')
+G1 X0 Y0 Z20 ; Move extruder down to about 10mm height (20mm actual minus 10mm gap we've added by increasing 'Z max length')
 ~~~~
 
-The printer will move the print nozzle at what it *thinks* is 3cm distance from the glass. But since we've messed with the height parameter, the actual distance will be smaller. 
+The printer will move the print nozzle at what it *thinks* is 2cm distance from the glass. But since we've messed with the height parameter, the actual distance will be smaller. 
 
-On the LCD screen select `Position` -> `Z position`. **Gently** turn the dial counter-clockwise to move the head down. Do it slowly!
+On the LCD screen select `Configuration` -> `Z calib.` -> `Z position`. **Gently** turn the dial counter-clockwise to move the head down. Do it slowly, as a burglar in a bank heist movie. **If you rotate the knob fast, it will crash into the glass!**
 
 Multiple advice on the web suggest using "paper test" - you place the piece of thin paper on the glass and move the nozzle down until it holds the paper firmly. I found a better way - it turns out that the sound of the fan on the printing head changes when you firmly touch the glass surface. Attention - you don't need to push down so hard that Z-probe button on the effector clicks; gentle but firm touch is enough.
 
-**Write down** the `Z position` number you got on the screen. Get a calculator and substract it from the rounded up `Z max length [mm]` value you placed into printer's EEPROM memory. This is your printer's correct print height.
+**Write down** the `Z position` number you got on the screen. Get a calculator and substract it from the rounded up `Z max length [mm]` value you placed into printer's EEPROM memory. This is your printer's correct print height. (If you will get negative number somehow, remember the laws of arithmetics - subtracting negative numbers means adding them.)
 
 As the result we now know exact values for four of the seven variables needed by calibration formula.
 
@@ -210,15 +210,15 @@ G1 X0	Y0 Z20   ; Hover over Point 9
 G28 ; return back home
 ~~~~
 
-Have you noticed the `Z20` in each of ten coordinates? It made the head to stop 20mm over the glass (at least, printer thought that it was 20mm...) and allowed me to move the head down manually using LCD screen menu, `Position` -> `Z position`.
+Have you noticed the `Z20` in each of ten coordinates? It made the head to stop 20mm over the glass (at least, printer thought that it was 20mm...) and allowed me to move the head down manually using LCD screen menu, `Configuration` -> `Z calib.` -> `Z position`.
 
 If the nozzle touched the glass plate firmly, but the LCD screen showed me that the distance was still, say, 1.23mm, I entered **negative** 1.23 value into the form.
 
-There is only one caveat. `Position` -> `Z position` will not let you dive below zero. That's a problem - because if it shows zero height and your print nozzle is still in the air, you can't precisely measure the distance. Soultion? Before running the calibration, **add 10mm to `Z max length [mm]` value** in the printer's memory (EEPROM) and home the effector. Then, if your nozzle touched the glass, and the screen shows 1**1.23**mm, enter **negative 1.23mm** into the form. If the nozzle touched the glass and the screen reads value below 10mm, say, 8mm, enter **positive** 2mm in the form (10mm minus 8mm equals 2mm).
+If the glass is too far away, the value on LCD screen becomes **negative** when I finally touch the bed. In that case I enter the **positive** number in the form. I.e. if the LCD screen reads `-1.22`, I enter `1.22` into the online form for that point. 
 
 If you did everything right, you must have corrective values for each of the ten test points. 
 
-Hit *Calculate* under the form, it will give you the following output, **which needs to be saved to appropriate fields in EEPROM memory of the printer**. Make sure you enter the values with decimal point, not comma. This is important for Russian users, because Russian version of Windows makes decumal numbers display in the former way - if you blindly will copy&paste the values, you will confuse your printer.
+Hit *Calculate* under the form, it will give you the following output, **which needs to be saved to appropriate fields in EEPROM memory of the printer**. Make sure you enter the values with **decimal point, not comma**. This is important for Russian users, because Russian version of Windows makes decumal numbers display in the former way - if you blindly will copy&paste the values, you will confuse your printer.
 
 Value | What to do with it:
 --- | ---
