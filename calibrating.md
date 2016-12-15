@@ -125,12 +125,20 @@ Run these commands to first home the head and then move it down:
 
 ~~~~
 G28 ; Home
-G1 X0 Y0 Z20 ; Move extruder down to about 10mm height (20mm actual minus 10mm gap we've added by increasing 'Z max length')
+G1 X0 Y0 Z20 ; Move extruder down to about 10mm height (20mm actual minus 10mm gap we've added by rounding up the 'Z max length')
 ~~~~
 
 The printer will move the print nozzle at what it *thinks* is 2cm distance from the glass. But since we've messed with the height parameter, the actual distance will be smaller. 
 
-On the LCD screen select `Configuration` -> `Z calib.` -> `Z position`. **Gently** turn the dial counter-clockwise to move the head down. Do it slowly, as a burglar in a bank heist movie. **If you rotate the knob fast, it will crash into the glass!**
+On the LCD screen select `Configuration` -> `Z calib.` -> `Z position`. **Gently** turn the dial counter-clockwise to move the head down. Do it slowly, like a burglar in a bank heist movie. **If you rotate the knob too fast, it will crash into the glass at full speed!**
+
+![Bank heist illustration](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/blob/master/images/lock%20artist.jpg)
+
+If you have still "crash-landed" the nozzle in the glass, causing it to slide sideways, issue the "Home all" command to start over.
+ 
+~~~~
+G28 ; Home
+~~~~
 
 Multiple advice on the web suggest using "paper test" - you place the piece of thin paper on the glass and move the nozzle down until it holds the paper firmly. I found a better way - it turns out that the sound of the fan on the printing head changes when you firmly touch the glass surface. Attention - you don't need to push down so hard that Z-probe button on the effector clicks; gentle but firm touch is enough.
 
