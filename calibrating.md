@@ -230,12 +230,12 @@ New tower position angle corrections | This is the trickiest part. You need to e
 
 You might be surprised that you had to alter the values of `Z max length` and endstop offsets that you *precisely measured before* (?!)  Actually, it makes sense. If the wizard decides that your towers are not absolutely vertical, it may decide to compensate these imperfections and altering those values will make sense. If you don't want to think about math and trigonometry, just let it go.
 
-Finish it by issuing 2 commands that will turn auto leveling back on:
+Finish it by issuing a command that will turn auto leveling back on:
 
 ~~~~
 M320 S2 ; Activates auto level permanently
-<!-- M323 S1 P1 ; Enables distortion correction permanently -->
 ~~~~
+<!-- M323 S1 P1 ; Enables distortion correction permanently -->
 
 **If you aren't tired and want the perfect results, home the printer, restart it, and repeat this Step 4 once again.** I've got an amazing precision after just 2 attempts. On the final step the tool gave me the following estimate:
 
