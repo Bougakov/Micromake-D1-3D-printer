@@ -135,7 +135,7 @@ The printer will move the print nozzle at what it *thinks* is 2cm distance from 
 
 On the LCD screen select `Configuration` -> `Z calib.` -> `Z position`. **Gently** turn the dial counter-clockwise to move the head down. Do it slowly, like a burglar in a bank heist movie. **If you rotate the knob too fast, it will crash into the glass at full speed!**
 
-![Bank heist illustration](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/blob/master/images/lock%20artist.jpg)
+![Bank heist illustration](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/lock%20artist.jpg)
 
 If you have still "crash-landed" the nozzle in the glass, causing it to slide sideways, issue the "Home all" command to start over.
  
