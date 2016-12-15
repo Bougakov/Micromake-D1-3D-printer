@@ -234,7 +234,7 @@ Finish it by issuing 2 commands that will turn auto leveling back on:
 
 ~~~~
 M320 S2 ; Activates auto level permanently
-M323 S1 P1 ; Enables distortion correction permanently
+<!-- M323 S1 P1 ; Enables distortion correction permanently -->
 ~~~~
 
 **If you aren't tired and want the perfect results, home the printer, restart it, and repeat this Step 4 once again.** I've got an amazing precision after just 2 attempts. On the final step the tool gave me the following estimate:
