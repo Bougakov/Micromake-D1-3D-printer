@@ -180,7 +180,7 @@ Initial homed height: | it is the height you just calculated. Enter it here.
 Initial tower angular position corrections: | leave zeroes there.
 Printable bed radius: | because I have paper clips around my glass, my print area is reduced. So in my case I entered `75`mm, but you can try `80`mm		
 Number of probe points: | change this to `10`		
-Number of factors to calibrate: | change to `7`	
+Number of factors to calibrate: | change to `7`. If you are 100% certain that your diagonal rods are `217`mm in length, but calculator would later give you some clearly wrong values, change this to `6`. This will force the calculator to play with other variables, but keep *Diagonal rod length* intact
 Normalize endstops: | leave unchecked	
 
 The calculator will suggest you ten points to probe on the print bed and will ask you to fill the distance between the glass and the print nozzle. For example, points like `X: 64.95;	Y37.50`.
@@ -225,7 +225,7 @@ G1 X0.00	Y37.50 Z20   ; Hover over Point 6
 ~~~~
 G28
 G1 X32.48	Y-18.75 Z20   ; Hover over Point 7
-~~~~
+ ~~~~
 
 ~~~~
 G28
@@ -251,7 +251,7 @@ Hit *Calculate* under the form, it will give you the following output, **which n
 Value | What to do with it:
 --- | ---
 New endstop corrections |	Save `X:`, `Y:` and `Z:` to `Tower X endstop offset`, `Tower Y endstop offset` and `Tower Z endstop offset`, accordingly. If the calculator gives you values with decimal part, round it to nearest value (i.e. if you get `56.9`, round it to `57`) - the printer's firmware will not accept it otherwise. 
-New diagonal rod length  |	Save to `Diagonal rod length`	
+New diagonal rod length  |	Save to `Diagonal rod length`. It is OK if the calculator will suggest you some minor corrections to the initial value of `217`mm. If it is wildly off, consider the note about *Nuumber of factors to calibrate* above
 New delta radius | Save to `Horizontal rod radius at 0,0`
 New homed height | Save this value in `Z max length`
 New tower position angle corrections | This is the trickiest part. You need to either add or substract these values from values stored in `Alpha A(210)`, `Alpha B(330)` and `Alpha C(90)`. If, for example, the wizard gave you `Z: -0.5`, it means that you need to substract 0.5 degree form the angle of tower `Z (C)`, which, by default, is 90 degrees.
