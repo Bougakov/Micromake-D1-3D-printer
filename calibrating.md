@@ -112,7 +112,7 @@ At this step you don't really need to know the exact length of your rod (or rule
 Next, run this command:
 
 ~~~~
-G132 S1 ; Calculates offsets  and stores them in EEPROM. Write them down!
+G132 S1 ; Calculates offsets  and stores them in EEPROM. 
 ~~~~
 
 It will move all pulleys up, until they reach the endstops, and return something like this:
@@ -123,7 +123,7 @@ Tower 2:305
 Tower 3:100
 ~~~~
 
-These are exact offsets measured by the printer. Write them down and enter them in the printer's memory ("EEPROM"). To access this dialog in Repetier, press `Alt+E`:
+These are exact offsets measured by the printer. Write them down and enter them in the printer's memory ("EEPROM"). To access this dialog in Repetier, press `Alt+E`. In CURA you can get to that dialog via `Use Machine` -> `Firmware configuration` menus.
 
 ![EEPROM dialog](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/EEPROM%20values.png)
 
