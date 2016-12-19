@@ -118,9 +118,9 @@ G132 S1 ; Calculates offsets  and stores them in EEPROM. Write them down!
 It will move all pulleys up, until they reach the endstops, and return something like this:
 
 ~~~~
-Tower 1:16
-Tower 2:0
-Tower 3:83
+Tower 1:344
+Tower 2:105
+Tower 3:100
 ~~~~
 
 These are exact offsets measured by the printer. Write them down and enter them in the printer's memory ("EEPROM"). To access this dialog in Repetier, press `Alt+E`:
@@ -179,7 +179,8 @@ Initial homed height: | it is the height you just calculated. Enter it here.
 Initial tower angular position corrections: | leave zeroes there.
 Printable bed radius: | because I have paper clips around my glass, my print area is reduced. So in my case I entered `75`mm, but you can try `80`mm		
 Number of probe points: | change this to `10`		
-Number of factors to calibrate: | change to `7`		
+Number of factors to calibrate: | change to `7`	
+Normalize endstops: | leave unchecked	
 
 The calculator will suggest you ten points to probe on the print bed and will ask you to fill the distance between the glass and the print nozzle. For example, points like `X: 64.95;	Y37.50`.
 
@@ -188,7 +189,7 @@ I found it boring to move the head to each of those ten points using just LCD sc
 ~~~~
 G28
 G1 X0.00	Y75.00 Z20   ; Hover over Point 0
-~~~~
+ ~~~~
 
 ~~~~
 G28
@@ -248,11 +249,12 @@ Hit *Calculate* under the form, it will give you the following output, **which n
 
 Value | What to do with it:
 --- | ---
-New endstop corrections |	Save `X:`, `Y:` and `Z:` to `Tower X endstop offset`, `Tower Y endstop offset` and `Tower Z endstop offset`, accordingly	
+New endstop corrections |	Save `X:`, `Y:` and `Z:` to `Tower X endstop offset`, `Tower Y endstop offset` and `Tower Z endstop offset`, accordingly. If the calculator gives you values with decimal part, round it to nearest value (i.e. if you get `56.9`, round it to `57`) - the printer's firmware will not accept it otherwise. 
 New diagonal rod length  |	Save to `Diagonal rod length`	
 New delta radius | Save to `Horizontal rod radius at 0,0`
 New homed height | Save this value in `Z max length`
 New tower position angle corrections | This is the trickiest part. You need to either add or substract these values from values stored in `Alpha A(210)`, `Alpha B(330)` and `Alpha C(90)`. If, for example, the wizard gave you `Z: -0.5`, it means that you need to substract 0.5 degree form the angle of tower `Z (C)`, which, by default, is 90 degrees.
+Commands | Ignore whatever the wizard generated there. These codes work with Marlin firmware, ours doesn't understand them.
 
 You might be surprised that you had to alter the values of `Z max length` and endstop offsets that you *precisely measured before* (?!)  Actually, it makes sense. If the wizard decides that your towers are not absolutely vertical, it may decide to compensate these imperfections and altering those values will make sense. If you don't want to think about math and trigonometry, just let it go.
 
