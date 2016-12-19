@@ -46,7 +46,7 @@ It is some serious math.
 
 To make things worse, all those variables are poorly named. You might have got used with towers named X, Y and Z. To make things worse, the Cartesian axes in which the print head moves, are *also* named X, Y and Z. And, for some reason, towers are sometimes named not X, Y and Z, but A, B and C. And to seriously fuck your brain, the angles of tower placement (which are 90, 210 and 330 degrees), are also named A, B, and C. On top of that, some adjustments are measured in millimeters, and some - in motor steps. Don't ask me why.
 
-![Names explained](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/Explainer.png)
+![Names explained](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/Explainer2.png)
 
 ## Step one - let's purge all autoleveling data your printer is storing
 
