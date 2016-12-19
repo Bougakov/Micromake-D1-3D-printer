@@ -119,7 +119,7 @@ It will move all pulleys up, until they reach the endstops, and return something
 
 ~~~~
 Tower 1:344
-Tower 2:105
+Tower 2:305
 Tower 3:100
 ~~~~
 
