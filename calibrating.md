@@ -125,7 +125,7 @@ Tower 3:83
 
 These are exact offsets measured by the printer. Write them down and enter them in the printer's memory ("EEPROM"). To access this dialog in Repetier, press `Alt+E`:
 
-![EEPROM dialog](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/EEPROM%20values.jpg)
+![EEPROM dialog](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/EEPROM%20values.png)
 
 Send the "home all" command to apply your changes:
 
