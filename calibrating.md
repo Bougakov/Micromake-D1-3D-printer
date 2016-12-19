@@ -18,9 +18,14 @@ You will need:
 
 * something long, like 30cm steel ruler or a piece of 30-40cm metal rod
 * calculator (Windows `calc.exe` is just fine)
-* any software that can send commands to COM port. I was using Repetier Host, but you can even use Arduino's *Serial monitor* - just set the correct port speed (250 000 baud) and connect.
 * [This brilliant online calculator](http://escher3d.com/pages/wizards/wizarddelta.php) (open it in new tab of your browser)
 * 5-10 minutes of time
+* any software that can send commands to COM port. I was using Repetier Host, but you can even use Arduino's *Serial monitor* - just set the correct port speed (250 000 baud) and connect.
+
+This is where you enter manual commands to your printer in [Repetier](https://www.repetier.com/):
+
+![gcode input in Repetier](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/gcode%20input%20in%20Repetier.png)
+
 
 # Some theory
 
@@ -118,7 +123,15 @@ Tower 2:0
 Tower 3:83
 ~~~~
 
-These are exact offsets measured by the printer. Write them down.
+These are exact offsets measured by the printer. Write them down and enter them in the printer's memory ("EEPROM"). To access this dialog in Repetier, press `Alt+E`:
+
+![EEPROM dialog](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/EEPROM%20values.jpg)
+
+Send the "home all" command to apply your changes:
+
+~~~~
+G28 ; Home
+~~~~
 
 ## Step three - measuring the printer's height manually
 
