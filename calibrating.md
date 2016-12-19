@@ -48,7 +48,8 @@ To make things worse, all those variables are poorly named. You might have got u
 
 ![Names explained](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/Explainer2.png)
 
-## Step one - let's purge all autoleveling data your printer is storing
+# Enough theory, let's calibrate it 
+## Step one - purge all autoleveling data your printer is storing
 
 First, check that the tension of all three belts is satisfactory. Inspect all screws, tighten those that went loose. Inspect all endstops as well. This is important!
 
