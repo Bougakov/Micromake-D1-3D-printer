@@ -144,6 +144,7 @@ Stock rods are `217mm` in length.
 
 #### Stepper motor:
 
+*   [Detailed explanation on how to enable 16 to 32 microstepping on the "old" board](https://vk.com/micromake_d1?z=photo-134740295_456239033%2Fwall-134740295_29)
 *   Microstepping (?): [https://www.facebook.com/zzcatvs/posts/995106527263309?pnref=story](https://www.facebook.com/zzcatvs/posts/995106527263309?pnref=story)
 
 #### Changing main board to 32-bit versions:
