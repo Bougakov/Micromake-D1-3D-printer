@@ -172,7 +172,7 @@ Open the [link to online calculator](http://escher3d.com/pages/wizards/wizarddel
 Setting | What to enter
 --- | ---
 Firmware type: | choose `Repetier` (don't forget this one!)
-Steps/mm: | enter `100`		
+Steps/mm: | enter `100`	(or `200` if you enabled 32-microstepping using jumper on the board)	
 Initial endstop corrections: | enter the values for X, Y, Z which we just have measured with the metal rod or ruler	
 Initial diagonal rod length: | if you use standard Micromake rods, enter `217`. If you use something custom, measure length from hole to hole in mm.		
 Initial delta radius: | for the dome-shaped Micromake effector (with two fans on the sides) it is `95`mm		
