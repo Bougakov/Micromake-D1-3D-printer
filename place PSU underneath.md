@@ -24,7 +24,7 @@ I have placed the new PSU on the left side, and used longer, 20cm M4 rods:
 
 M4 rods are sold in 1m long pieces - you'd need two of these. Cut them to size with Dremel - and don't forget to wear eye protection in the process. I strongly suggest to use lockwashers to keep vertical rods in place:
 
-![Lockwasher](http://xn--e1ahdoaefcbdgmy.xn--p1ai/wp-content/uploads/2013/10/shaiba-4.jpg)
+![Lockwasher](https://habrastorage.org/files/c51/ff4/e1b/c51ff4e1bf9a4940b83c914518155f17.jpg)
 
 Before tightening the nuts, place something flat, like a piece of glass, on top of all 6 rods. Make sure that the height of all of them is uniform, then tighten. You can optionally use a drop of the thread locking gel to ensure that the nuts stay in place despite all vibrations.
 
@@ -34,9 +34,26 @@ Next I've installed a power socket on the side. I bought it [from AliExpress for
 
 It comes without the fuse, so buy 20mm 2 amps one separately. Use copper wires to connect the PSU to the socket; ideally solder them and reliably insulate with heatshrink tubing. Either use crimp lugs or solder the ends of the wires that go into the terminal box of the PSU.
 
-Use the M4 drill to clean six holes in the printer's corners from mold flash. Put a nut and the washer on each of the vertical rods at about 15cm height and put the printer on top. Then use 6 nuts to lock it in place.
+Use the M4 drill to clean six holes in the printer's corners from mold flash:
 
----
+![Cleaning the holes from mold flash](http://3dtoday.ru/upload/resize_cache/main/1e8/940_1080_1/IMG_1198.JPG)
 
-This HOWTO was written for the [unofficial Facebook group of Micromake users](https://www.facebook.com/groups/173676226330714/) instead.
+Put a nut and the washer on each of the vertical rods at about 15cm height and put the printer on top. Then use 6 nuts to lock it in place.
 
+# Option - modify the heated bed mount
+
+I print with ABS plastic using heated bed. I use full-sized glass (d=220mm) with PEI sheet glued on top and attach it with paper clips, so basically I don't need the heated bed to be removable. Yet still I found a way to make it detachable and fully flat, touching the *entire bottom of the glass*:
+
+![22cm glass](https://habrastorage.org/files/92d/6f9/2d4/92d6f92d456f4dfdabf548651d799c48.jpg)
+
+The bottom of the heated bed is insulated with 2 layers of cork and some plywood:
+
+![Layers](https://pp.vk.me/c837423/v837423745/1920c/GU5XKtVwUhs.jpg)
+
+I used M5 bolts 100mm long and a wide nut as a spacer (you'd need to lift the heated bed up a little bit to fit the paper clips comfortably). To ensure that the head of the bolt is level with the surface of the heated bed I've drilled it a little bit and sanded the edges with Dremel:
+
+![Hole in heated bed](https://pp.vk.me/c837423/v837423745/19220/Wz5CZaj8yjw.jpg)
+
+Drill 3 holes in the horizontal rods. Make sure that you **carefully vacuum everything after drilling** and no shavings got into the PSU or into the main board! Use M5 butterfly nuts to fix the bolts. 
+
+*This HOWTO was written for the [unofficial Facebook group of Micromake users](https://www.facebook.com/groups/173676226330714/).*
