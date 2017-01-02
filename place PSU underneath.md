@@ -1,12 +1,13 @@
 # Placing PSU underneath Micromake D1 printer to save space
 
-This tweak was initally described in this artcile on http://3dtoday.ru/blogs/sanja/hide-the-power-supply-delta-printer-under-body/; here is an extended version.
+This tweak was initially described in this article on http://3dtoday.ru/blogs/sanja/hide-the-power-supply-delta-printer-under-body/; here is an extended version.
 
 The purpose of this mod is to make Micromake D1 "monolitic" - so it could be carried in one piece easily. Another goal is to improve the safety of the PSU, because mains voltage is otherwise dangerously exposed.
 
 ![General view](https://pp.vk.me/c837423/v837423745/191ee/jvTvs92gLj0.jpg)
 
-Here is the close-up. Pictured is the Orange PI PC computer that hosts Repetier Server and works as dedicated printer controller:
+Here is the close-up. Pictured is the Orange PI PC computer that hosts Repetier Server and works as dedicated printer controller. 
+Notice that all GPIO connectors, USB ports and even HDMI connector are easily accessible:
 
 ![Close-up](https://pp.vk.me/c837423/v837423745/191f8/CfGgooVEUl0.jpg)
 
