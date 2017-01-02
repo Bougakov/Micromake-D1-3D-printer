@@ -40,6 +40,10 @@ Use the M4 drill to clean six holes in the printer's corners from mold flash:
 
 Put a nut and the washer on each of the vertical rods at about 15cm height and put the printer on top. Then use 6 nuts to lock it in place.
 
+There is a lot of space on the other side of the PSU - it can be used to relocate the main board further from the heated bed and making it more accessible. I haven't touched it yet, but will definitely move it next time.
+
+![Lots of space](https://habrastorage.org/files/c41/8fc/cd0/c418fccd085e458a9783b2bee0f71d20.jpg)
+
 # Option - modify the heated bed mount
 
 I print with ABS plastic using heated bed. I use full-sized glass (d=220mm) with PEI sheet glued on top and attach it with paper clips, so basically I don't need the heated bed to be removable. Yet still I found a way to make it detachable and fully flat, touching the *entire bottom of the glass*:
