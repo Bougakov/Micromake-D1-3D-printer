@@ -22,5 +22,15 @@ I have placed the new PSU on the left side, and used longer, 20cm M4 rods:
 
 ![With new PSU](https://pp.vk.me/c837423/v837423745/19216/J-xlr_UGyLE.jpg)
 
+M4 rods are sold in 1m long pieces - you'd need two of these. Cut them to size with Dremel - and don't forget to wear eye protection in the process.
+
+Next I've installed a power socket on the side. I bought it [from AliExpress for $1.2](https://alitems.com/g/1e8d1144949a590a4ec116525dc3e8/?ulp=https%3A%2F%2Fwww.aliexpress.com%2Fitem%2FNEW-10A-250V-Inlet-Module-Plug-Fuse-Switch-Male-Power-Socket-3-Pin-IEC320-C14%2F32505761611.html):
+
+![Socket w/fuse](https://ae01.alicdn.com/kf/HTB1jyacKXXXXXckXFXXq6xXFXXXA/NEW-10A-250V-Inlet-Module-Plug-Fuse-Switch-Male-Power-Socket-3-Pin-IEC320-C14.jpg)
+
+It comes without the fuse, buy 20mm 2 amps fuse separately. Use copper wires to connect the PSU to the socket; ideally solder them and reliably insulate with heatshrink tubing.
+
+
+
 Work in progress. Check [Facebook group on Micromake](https://www.facebook.com/groups/173676226330714/) instead.
 
