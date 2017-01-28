@@ -14,8 +14,9 @@
 
    Z-probe distance: 35.37 35.39 35.32 35.37 35.56 35.65 35.66 35.58 35.50 35.57
 
-   These three numbers are "probe points" from 0 to 9.
-   Before using double-check that the "Z-probe offset" is correctly entered into EEPROM in 
+   These ten numbers are "probe points" from 0 to 9 that Escher3d needs from you.
+   
+   Before using this code, double-check that the "Z-probe offset" is correctly entered into EEPROM in 
    case you have custom Z-probe.
    
    Be prepared that measurements will be well off in single direction (like mine 
