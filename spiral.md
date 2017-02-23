@@ -6,6 +6,10 @@ Install https://www.continuum.io/downloads#windows first (you need Python 3.5 va
 
 Save my code in any folder. Also create a file with the name `spiralcoordinates.csv` in the same directory. CSV file must be tab-delimited, without header. Copy is attached below; alternatively you can generate your own dummy CSV file using my JavaScript wizard.
 
+It will produce the chart like this:
+
+![Surface plot](https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/16831041_1066395483466545_9109059825969635227_n.jpg?oh=b0d2006219b3b90dd5a1edce98825525&oe=592D184B)
+
 ```python
 import matplotlib
 import numpy as np
@@ -205,7 +209,9 @@ And here is the CSV data. First column is ID, next three are X, Y and Z-height.
 
 ## JavaScript implementation of spiral algorithm. 
 
-Save it to a local file and open. Feel free to play with `width`, `coils` and `chord` values. Defaults are for bed diameter of 150mm (1px equals to 1mm):
+Save it to a local file and open. Feel free to play with `width`, `coils` and `chord` values. Defaults are for bed diameter of 150mm (1px equals to 1mm). It will visualize spiral and create dummy CSV file like this:
+
+![Spiral](https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/16832090_1066396203466473_7609443908364565218_n.jpg?oh=52cac2f8183a77609d5a0991ea6c9a70&oe=59366366)
 
 ```html
 <!DOCTYPE html>
