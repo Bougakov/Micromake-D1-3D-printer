@@ -12,7 +12,7 @@ Save my code in any folder. Also create a file with the name `spiralcoordinates.
 
 It will produce the chart like this:
 
-![Surface plot](https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/16831041_1066395483466545_9109059825969635227_n.jpg?oh=b0d2006219b3b90dd5a1edce98825525&oe=592D184B)
+![Surface plot](https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/16864382_1066469400125820_1971672729963592477_n.jpg?oh=22cba2d7a887f3ae8db9e0609dc41091&oe=594651A5)
 
 ```python
 import matplotlib
