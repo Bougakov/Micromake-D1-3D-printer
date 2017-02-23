@@ -50,7 +50,7 @@ CS = plt.contour(X, Y, Z)
 plt.clabel(CS, inline=1, fontsize=10)
 
 # second is a gradient color fill:
-colorlevels = np.arange(min(zcoords), max(zcoords), (max(zcoords) - min(zcoords)) / 100 ) # color gradient from min to max with 100 steps in between
+colorlevels = np.arange(min(zcoords) - 0.1, max(zcoords) + 0.1, ((max(zcoords) - min(zcoords)) + 0.2) / 100 ) # color gradient from min to max with 100 steps in between
 #colorlevels = [-1,	-0.9,	-0.8,	-0.7,	-0.6,	-0.5,	-0.4,	-0.3,	-0.2,	-0.1,	0,	0.1,	0.2,	0.3,	0.4,	0.5,	0.6,	0.7,	0.8,	0.9,	1]
 CS2 = plt.contourf(CS, levels=colorlevels, origin='lower')
 cbar = plt.colorbar(CS2)
@@ -87,6 +87,8 @@ plt.show()
 ```
 
 And here is the CSV data (I obtained it from my printer after resetting it to factory defaults, so it is not "dummy"). First column is ID, next three are X, Y and Z-height.
+
+Save it with the name `spiralcoordinates.csv` in the same directory as Python script. CSV file must be tab-delimited, without headers.
 
 ```csv
 1	0	0	33.5
