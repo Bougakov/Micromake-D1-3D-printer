@@ -378,7 +378,7 @@ Save it to a local file and open. Feel free to play with `width`, `coils` and `c
 </html>
 ```
 
-## Implementation in Repetier code ():
+## Implementation in Repetier code (does NOT work!!):
 
 I added the following block into `commands.cpp` file, but it doesn't work properly:
 
@@ -452,4 +452,245 @@ case 228: {
 	Printer::homeAxis(true, true, true);
   }
   break;
+```
+
+## Sample g-code (for bed with printable diameter of 160mm):
+
+```
+G28 ; Home
+M322 ; Resets auto level matrix  (adding S3 will make change permanent)
+M321 ; Deactivates auto level (adding S2 will make change permanent)
+G28
+G1 X0 Y0 Z28 ;	Probe point 0
+G30 P2
+G1 X-6.430 Y10.132 Z28 ;	Probe point 1
+G30 P2
+G1 X-14.273 Y0.076 Z28 ;	Probe point 2
+G30 P2
+G1 X-10.858 Y-12.002 Z28 ;	Probe point 3
+G30 P2
+G1 X0.108 Y-17.871 Z28 ;	Probe point 4
+G30 P2
+G1 X12.159 Y-15.113 Z28 ;	Probe point 5
+G30 P2
+G1 X20.024 Y-5.642 Z28 ;	Probe point 6
+G30 P2
+G1 X21.114 Y6.581 Z28 ;	Probe point 7
+G30 P2
+G1 X15.502 Y17.461 Z28 ;	Probe point 8
+G30 P2
+G1 X5.161 Y23.968 Z28 ;	Probe point 9
+G30 P2
+G1 X-7.018 Y24.651 Z28 ;	Probe point 10
+G30 P2
+G1 X-18.109 Y19.614 Z28 ;	Probe point 11
+G30 P2
+G1 X-25.783 Y10.171 Z28 ;	Probe point 12
+G30 P2
+G1 X-28.655 Y-1.641 Z28 ;	Probe point 13
+G30 P2
+G1 X-26.365 Y-13.569 Z28 ;	Probe point 14
+G30 P2
+G1 X-19.479 Y-23.563 Z28 ;	Probe point 15
+G30 P2
+G1 X-9.247 Y-30.075 Z28 ;	Probe point 16
+G30 P2
+G1 X2.683 Y-32.220 Z28 ;	Probe point 17
+G30 P2
+G1 X14.557 Y-29.811 Z28 ;	Probe point 18
+G30 P2
+G1 X24.763 Y-23.295 Z28 ;	Probe point 19
+G30 P2
+G1 X32.028 Y-13.612 Z28 ;	Probe point 20
+G30 P2
+G1 X35.527 Y-2.029 Z28 ;	Probe point 21
+G30 P2
+G1 X34.934 Y10.052 Z28 ;	Probe point 22
+G30 P2
+G1 X30.405 Y21.263 Z28 ;	Probe point 23
+G30 P2
+G1 X22.508 Y30.415 Z28 ;	Probe point 24
+G30 P2
+G1 X12.127 Y36.602 Z28 ;	Probe point 25
+G30 P2
+G1 X0.342 Y39.264 Z28 ;	Probe point 26
+G30 P2
+G1 X-11.690 Y38.212 Z28 ;	Probe point 27
+G30 P2
+G1 X-22.855 Y33.609 Z28 ;	Probe point 28
+G30 P2
+G1 X-32.168 Y25.926 Z28 ;	Probe point 29
+G30 P2
+G1 X-38.857 Y15.877 Z28 ;	Probe point 30
+G30 P2
+G1 X-42.404 Y4.341 Z28 ;	Probe point 31
+G30 P2
+G1 X-42.570 Y-7.724 Z28 ;	Probe point 32
+G30 P2
+G1 X-39.394 Y-19.364 Z28 ;	Probe point 33
+G30 P2
+G1 X-33.166 Y-29.695 Z28 ;	Probe point 34
+G30 P2
+G1 X-24.392 Y-37.971 Z28 ;	Probe point 35
+G30 P2
+G1 X-13.739 Y-43.623 Z28 ;	Probe point 36
+G30 P2
+G1 X-1.979 Y-46.289 Z28 ;	Probe point 37
+G30 P2
+G1 X10.069 Y-45.827 Z28 ;	Probe point 38
+G30 P2
+G1 X21.599 Y-42.307 Z28 ;	Probe point 39
+G30 P2
+G1 X31.868 Y-35.996 Z28 ;	Probe point 40
+G30 P2
+G1 X40.242 Y-27.327 Z28 ;	Probe point 41
+G30 P2
+G1 X46.224 Y-16.865 Z28 ;	Probe point 42
+G30 P2
+G1 X49.480 Y-5.263 Z28 ;	Probe point 43
+G30 P2
+G1 X49.848 Y6.780 Z28 ;	Probe point 44
+G30 P2
+G1 X47.340 Y18.564 Z28 ;	Probe point 45
+G30 P2
+G1 X42.127 Y29.425 Z28 ;	Probe point 46
+G30 P2
+G1 X34.527 Y38.772 Z28 ;	Probe point 47
+G30 P2
+G1 X24.977 Y46.113 Z28 ;	Probe point 48
+G30 P2
+G1 X14.004 Y51.078 Z28 ;	Probe point 49
+G30 P2
+G1 X2.193 Y53.433 Z28 ;	Probe point 50
+G30 P2
+G1 X-9.844 Y53.083 Z28 ;	Probe point 51
+G30 P2
+G1 X-21.503 Y50.072 Z28 ;	Probe point 52
+G30 P2
+G1 X-32.215 Y44.571 Z28 ;	Probe point 53
+G30 P2
+G1 X-41.470 Y36.870 Z28 ;	Probe point 54
+G30 P2
+G1 X-48.845 Y27.353 Z28 ;	Probe point 55
+G30 P2
+G1 X-54.011 Y16.480 Z28 ;	Probe point 56
+G30 P2
+G1 X-56.754 Y4.758 Z28 ;	Probe point 57
+G30 P2
+G1 X-56.969 Y-7.278 Z28 ;	Probe point 58
+G30 P2
+G1 X-54.669 Y-19.093 Z28 ;	Probe point 59
+G30 P2
+G1 X-49.974 Y-30.176 Z28 ;	Probe point 60
+G30 P2
+G1 X-43.105 Y-40.059 Z28 ;	Probe point 61
+G30 P2
+G1 X-34.368 Y-48.336 Z28 ;	Probe point 62
+G30 P2
+G1 X-24.139 Y-54.678 Z28 ;	Probe point 63
+G30 P2
+G1 X-12.847 Y-58.839 Z28 ;	Probe point 64
+G30 P2
+G1 X-0.954 Y-60.671 Z28 ;	Probe point 65
+G30 P2
+G1 X11.066 Y-60.118 Z28 ;	Probe point 66
+G30 P2
+G1 X22.745 Y-57.220 Z28 ;	Probe point 67
+G30 P2
+G1 X33.635 Y-52.104 Z28 ;	Probe point 68
+G30 P2
+G1 X43.332 Y-44.981 Z28 ;	Probe point 69
+G30 P2
+G1 X51.481 Y-36.130 Z28 ;	Probe point 70
+G30 P2
+G1 X57.795 Y-25.889 Z28 ;	Probe point 71
+G30 P2
+G1 X62.056 Y-14.638 Z28 ;	Probe point 72
+G30 P2
+G1 X64.126 Y-2.788 Z28 ;	Probe point 73
+G30 P2
+G1 X63.948 Y9.241 Z28 ;	Probe point 74
+G30 P2
+G1 X61.541 Y21.027 Z28 ;	Probe point 75
+G30 P2
+G1 X57.004 Y32.167 Z28 ;	Probe point 76
+G30 P2
+G1 X50.504 Y42.288 Z28 ;	Probe point 77
+G30 P2
+G1 X42.271 Y51.057 Z28 ;	Probe point 78
+G30 P2
+G1 X32.589 Y58.193 Z28 ;	Probe point 79
+G30 P2
+G1 X21.782 Y63.472 Z28 ;	Probe point 80
+G30 P2
+G1 X10.206 Y66.736 Z28 ;	Probe point 81
+G30 P2
+G1 X-1.765 Y67.893 Z28 ;	Probe point 82
+G30 P2
+G1 X-13.752 Y66.920 Z28 ;	Probe point 83
+G30 P2
+G1 X-25.382 Y63.858 Z28 ;	Probe point 84
+G30 P2
+G1 X-36.299 Y58.815 Z28 ;	Probe point 85
+G30 P2
+G1 X-46.176 Y51.955 Z28 ;	Probe point 86
+G30 P2
+G1 X-54.722 Y43.494 Z28 ;	Probe point 87
+G30 P2
+G1 X-61.690 Y33.694 Z28 ;	Probe point 88
+G30 P2
+G1 X-66.885 Y22.849 Z28 ;	Probe point 89
+G30 P2
+G1 X-70.165 Y11.281 Z28 ;	Probe point 90
+G30 P2
+G1 X-71.447 Y-0.675 Z28 ;	Probe point 91
+G30 P2
+G1 X-70.705 Y-12.676 Z28 ;	Probe point 92
+G30 P2
+G1 X-67.970 Y-24.385 Z28 ;	Probe point 93
+G30 P2
+G1 X-63.330 Y-35.477 Z28 ;	Probe point 94
+G30 P2
+G1 X-56.922 Y-45.650 Z28 ;	Probe point 95
+G30 P2
+G1 X-48.929 Y-54.632 Z28 ;	Probe point 96
+G30 P2
+G1 X-39.576 Y-62.186 Z28 ;	Probe point 97
+G30 P2
+G1 X-29.119 Y-68.119 Z28 ;	Probe point 98
+G30 P2
+G1 X-17.841 Y-72.281 Z28 ;	Probe point 99
+G30 P2
+G1 X-6.039 Y-74.572 Z28 ;	Probe point 100
+G30 P2
+G1 X5.977 Y-74.943 Z28 ;	Probe point 101
+G30 P2
+G1 X17.899 Y-73.393 Z28 ;	Probe point 102
+G30 P2
+G1 X29.423 Y-69.971 Z28 ;	Probe point 103
+G30 P2
+G1 X40.261 Y-64.771 Z28 ;	Probe point 104
+G30 P2
+G1 X50.148 Y-57.933 Z28 ;	Probe point 105
+G30 P2
+G1 X58.842 Y-49.632 Z28 ;	Probe point 106
+G30 P2
+G1 X66.137 Y-40.078 Z28 ;	Probe point 107
+G30 P2
+G1 X71.863 Y-29.509 Z28 ;	Probe point 108
+G30 P2
+G1 X75.889 Y-18.183 Z28 ;	Probe point 109
+G30 P2
+G1 X78.127 Y-6.373 Z28 ;	Probe point 110
+G30 P2
+G1 X78.532  Y5.640 Z28 ;	Probe point 111
+G30 P2
+G1 X77.103 Y17.575 Z28 ;	Probe point 112
+G30 P2
+G1 X73.882 Y29.155 Z28 ;	Probe point 113
+G30 P2
+G1 X68.949 Y40.115 Z28 ;	Probe point 114
+G30 P2
+G28 ; Finished
+M320 S2 ; Activates auto level permanently
 ```
