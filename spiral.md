@@ -249,17 +249,24 @@ Save it to a local file and open. Feel free to play with `width`, `coils` and `c
         tr:nth-child(odd) {
             background-color: white;
         }
+		textarea {
+			width: 90%;
+			height: 250px;
+		}
     </style>
   </head>
   <body>
     <h1>Spiral path for 3d printer's height probe</h1>
     <div id="chart"></div>
 
+	<h2>G-code:</h2>
+	<textarea id="gcode"></textarea>	
+	
     <h1>Generated coordinates</h1>
     <p>Array that would hold the list of coordinates needs to be <code id="arr"></code> elements long (including element with id 0 that holds coordinates for center point 0,0).</p>
     <p>thetaMax is <code id="thetaMax"></code>.</p>
     <p>chord is <code id="chord"></code>.</p>
-    
+   
     <table border="1">
         <tr>
             <th>#</th>
@@ -269,15 +276,22 @@ Save it to a local file and open. Feel free to play with `width`, `coils` and `c
             <th>theta</th>
         </tr>
         <tbody id="coords"></tbody>
-    </table>
+	</table>
 
     <script type="text/javascript"><!--
 
         var width = 150; // width of spiral in px ("virtual" mm). Must be smaller than plate diameter
         var height = width;
-        var coils = 3.6; // Sets the number of turns the spiral makes
-        var chord = 15; // distance in px ("virtual" mm between hops of spiral)
+        var coils = 5.6; // Sets the number of turns the spiral makes
+        var chord = 12; // distance in px ("virtual" mm between hops of spiral)
 
+		document.getElementById("gcode").innerHTML = "G28 ; Home\n" +
+			"M321 ; Deactivates auto level (adding S2 will make change permanent)\n" +
+			"M322 ; Resets auto level matrix  (adding S3 will make change permanent)\n" +
+			"G33 R0 ; Resets bump map\n" +
+			"G28\n" +
+			"G1 X0 Y0 Z30\n";
+		
         var centerX = width/2,
             centerY = height/2,
             radius = width/2;
@@ -334,8 +348,13 @@ Save it to a local file and open. Feel free to play with `width`, `coils` and `c
                 "</td><td><i>" +
                 theta.toFixed(3) +
                 "</i></td></tr>";
-        }
+        
+			document.getElementById("gcode").innerHTML = document.getElementById("gcode").innerHTML + "G1" + " X" + offsetX + " Y" + offsetY + " Z30\nG30 P2\n";
+		}
+		
+		document.getElementById("gcode").innerHTML = document.getElementById("gcode").innerHTML + "G28 ; Finished\nM320 S2 ; Activates auto level permanently\n\n";
 
+		
         // code that draws spiral using SVG:
         var svg = d3.select("#chart").append("svg")
             .attr("width", width)
