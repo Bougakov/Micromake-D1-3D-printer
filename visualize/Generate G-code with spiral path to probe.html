@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="Points Along an Archimedean Spiral" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
+    <style type="text/css">
+        svg {
+          background: white;
+        }
+
+        .spiral {
+          fill: none;
+          stroke: #303030;
+          stroke-width: 3px;
+        }
+        .chart {
+            margin: 10px;
+        }
+        td {
+            text-align: right;
+            min-width: 50px;
+        }
+        th, tr:nth-child(even) {
+            background-color: lightgrey;
+        }
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+		textarea {
+			width: 90%;
+			height: 250px;
+		}
+    </style>
+  </head>
+  <body>
+    <h1>Spiral path for 3d printer's height probe</h1>
+    <div id="chart"></div>
+
+	<h2>G-code:</h2>
+	<textarea id="gcode"></textarea>	
+	
+    <h1>Generated coordinates</h1>
+    <p>Array that would hold the list of coordinates needs to be <code id="arr"></code> elements long (including element with id 0 that holds coordinates for center point 0,0).</p>
+    <p>thetaMax is <code id="thetaMax"></code>.</p>
+    <p>chord is <code id="chord"></code>.</p>
+   
+    <table border="1">
+        <tr>
+            <th>#</th>
+            <th>X</th>
+            <th>Y</th>
+            <th>dummy Z</th>
+            <th>theta</th>
+        </tr>
+        <tbody id="coords"></tbody>
+	</table>
+
+    <script type="text/javascript"><!--
+
+        var width = 170; // width of spiral in px ("virtual" mm). Must be smaller than plate diameter
+        var height = width;
+        var coils = 6.6; // Sets the number of turns the spiral makes
+        var chord = 8; // distance in px ("virtual" mm between hops of spiral)
+		
+		var z_probe_height = 24;
+
+		document.getElementById("gcode").innerHTML = "M119 ; Test endstops\n" +
+			"M321 ; Deactivates auto level (adding S2 will make change permanent)\n" +
+			"M322 ; Resets auto level matrix  (adding S3 will make change permanent)\n" +
+			"G33 R0 ; Resets bump map\n" +
+			"\n" +
+			"M206 T3 P153 X312.440	; Z max length [mm]\n" +
+			"M206 T1 P893 S100	; Tower X endstop offset [steps]\n" +
+			"M206 T1 P895 S100	; Tower Y endstop offset [steps]\n" +
+			"M206 T1 P897 S100	; Tower Z endstop offset [steps]\n" +
+			"M206 T3 P881 X217.000	; Diagonal rod length [mm]\n" +
+			"M206 T3 P885 X92.000	; Horizontal rod radius at 0,0 [mm]\n" +
+			"M206 T3 P901 X210.000	; Alpha A(210):\n" +
+			"M206 T3 P905 X330.000	; Alpha B(330):\n" +
+			"M206 T3 P909 X90.000	; Alpha C(90):\n" +
+			"M206 T3 P913  X0.000	; Delta Radius A(0):\n" +
+			"M206 T3 P917  X0.000	; Delta Radius B(0):\n" +
+			"M206 T3 P921  X0.000	; Delta Radius C(0):\n" +
+			"M206 T3 P933  X0.000	; Corr. diagonal A [mm]\n" +
+			"M206 T3 P937  X0.000	; Corr. diagonal B [mm]\n" +
+			"M206 T3 P941  X0.000	; Corr. diagonal C [mm]\n" +
+			"M206 T3 P808 X18.400	; Z-probe height [mm]\n" +
+			"\n" +
+			"G28 ; Home\n" +
+			"\n";
+
+        var centerX = width/2,
+            centerY = height/2,
+            radius = width/2;
+
+        var rotation = 2 * Math.PI;
+        var thetaMax = coils * 2 * Math.PI;
+        var awayStep = radius / thetaMax;
+
+        var i = 0;
+        var new_time = [];
+        
+        new_time.push({x: centerX, y: centerY, theta: NaN, chord: NaN}); // spiral starts at center point
+        
+        // Determining array size to hold spiral coordinates:
+        for ( theta = chord / awayStep; theta <= thetaMax; ) {
+            away = awayStep * theta;
+            theta += chord / away;
+            i++;
+        }
+        document.getElementById("arr").innerHTML = i + 1; 
+        document.getElementById("thetaMax").innerHTML = thetaMax.toFixed(3); 
+        document.getElementById("chord").innerHTML    = chord; 
+        i = 0; // Reset counter
+        
+        // Calculating actual coordinates:
+        for ( theta = chord / awayStep; theta <= thetaMax; ) {
+            away = awayStep * theta;
+            around = theta + rotation;
+
+            x = centerX + Math.cos ( around ) * away;
+            y = centerY + Math.sin ( around ) * away;
+
+            theta += chord / away;
+            new_time.push({x: x, y: y, theta: theta, chord: chord});
+
+            // Code that appends the lines to the table on the page:
+            i++;
+            // here we adjust the coordinates so that the center of spiral is at 0, 0 point:
+            offsetX = width/2 - x;
+            offsetX = offsetX.toFixed(3);
+            offsetY = height/2 - y;
+            offsetY = offsetY.toFixed(3);
+            dummyZ  = Math.random(); // For debugging purposes we use random numbers instead of actual Z-probe values
+            dummyZ  = dummyZ.toFixed(3);
+            document.getElementById("coords").innerHTML = document.getElementById("coords").innerHTML +
+                "<tr><td>" +
+                i +
+                "</td><td>" +
+                offsetX +
+                "</td><td>" +
+                offsetY +
+                "</td><td>" +
+                dummyZ +
+                "</td><td><i>" +
+                theta.toFixed(3) +
+                "</i></td></tr>";
+        
+			document.getElementById("gcode").innerHTML = document.getElementById("gcode").innerHTML + "G1" + " X" + offsetX + " Y" + offsetY + " Z" + z_probe_height + " ;\tProbe point " + i + "\nG30 P2\n";
+		}
+		
+		document.getElementById("gcode").innerHTML = document.getElementById("gcode").innerHTML + "\nG28 ; Finished\nM320 S2 ; Activates auto level permanently\n\n";
+
+		
+        // code that draws spiral using SVG:
+        var svg = d3.select("#chart").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g");
+
+        var lineFunction = d3.svg.line()
+                            .x(function(d) { return d.x; })
+                            .y(function(d) { return d.y; })
+                            .interpolate("cardinal");
+
+        svg.append("path")
+          .attr("d", lineFunction(new_time))
+          .attr("stroke", "gray")
+          .attr("stroke-width", 0.5)
+          .attr("fill", "none");
+
+
+        var circles = svg.selectAll("circle")
+                        .data(new_time)
+                        .enter()
+                        .append("circle")
+                        .attr("cx", function (d) { return d.x; })
+                        .attr("cy", function (d) { return d.y; })
+                        .attr("r", 2);
+
+    --></script>
+  </body>
+</html>
