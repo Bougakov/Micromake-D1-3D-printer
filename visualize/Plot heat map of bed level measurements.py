@@ -82,8 +82,8 @@ plt.xlim([lowboundary,upboundary])
 plt.ylim([lowboundary,upboundary])
 
 # Fixed points for tower positions (I've placed them roughly, fix this with trigonometric formulas if you'd like):
-plt.annotate("Tower B (Y)", xy=( upboundary*2/3, lowboundary*1/3), arrowprops=dict(facecolor='black', shrink=0.05))
-plt.annotate("Tower A (X)", xy=(upboundary*-2/3, lowboundary*1/3), arrowprops=dict(facecolor='black', shrink=0.05))
-plt.annotate("Tower C (Z)", xy=(              0,  upboundary*4/5), arrowprops=dict(facecolor='black', shrink=0.05))
+plt.annotate("Tower A (X)", xy=(-64.95, -37.5), arrowprops=dict(facecolor='black', shrink=0.05))
+plt.annotate("Tower B (Y)", xy=( 64.95, -37.5), arrowprops=dict(facecolor='black', shrink=0.05))
+plt.annotate("Tower C (Z)", xy=(  0   ,  75  ), arrowprops=dict(facecolor='black', shrink=0.05))
 
 plt.show()
