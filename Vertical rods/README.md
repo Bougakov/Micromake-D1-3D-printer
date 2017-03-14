@@ -8,6 +8,8 @@ There are 3 versions:
  * for shorter 650mm version
  * for [modified 682mm version with "basement" for PSU](https://github.com/Bougakov/Micromake-D1-3D-printer/blob/master/place%20PSU%20underneath.md)
  
+The layouts were prepared in AutoCAD LT 2013 - please verify that your version matches.
+ 
 Tell the metallworking company to cut steel by white lines and bend 60 degrees by yellow lines.
  
 ![Preview](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/Vertical%20rods/3%20types%20of%20Micromake%20bars.png)
