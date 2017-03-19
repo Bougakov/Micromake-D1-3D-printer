@@ -4,7 +4,7 @@ This simple tool allows you to measure the entire surface of the Delta 3D printe
 
 As the result you'd get a nifty chart that visualizes the flatness of the bed - so you can improve it more easily.
 
-!(Sample)[https://github.com/Bougakov/Micromake-D1-3D-printer/raw/master/visualize/Sample%20heat%20map%20chart.png]
+![Sample](https://github.com/Bougakov/Micromake-D1-3D-printer/raw/master/visualize/Sample%20heat%20map%20chart.png)
 
 How to use this tool:
 
