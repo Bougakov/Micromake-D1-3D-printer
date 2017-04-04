@@ -20,24 +20,47 @@
 
 ## Исправляем значения в EEPROM принтера перед калибровкой
 
- M206 T3 P153 X311.820	; Z max length [mm]
- M206 T1 P893 S000	; Tower X endstop offset [steps]
- M206 T1 P895 S383	; Tower Y endstop offset [steps]
- M206 T1 P897 S255	; Tower Z endstop offset [steps]
- M206 T3 P881 X217.000	; Diagonal rod length [mm]
- M206 T3 P885 X95.2	; Horizontal rod radius at 0,0 [mm]
- M206 T3 P901 X210.00	; Alpha A(210):
- M206 T3 P905 X330.00	; Alpha B(330):
- M206 T3 P909 X90.000	; Alpha C(90):
- M206 T3 P913  X0.000	; Delta Radius A(0):
- M206 T3 P917  X0.000	; Delta Radius B(0):
- M206 T3 P921  X0.000	; Delta Radius C(0):
- M206 T3 P933  X0.000	; Corr. diagonal A [mm]
- M206 T3 P937  X0.000	; Corr. diagonal B [mm]
- M206 T3 P941  X0.000	; Corr. diagonal C [mm]
- M206 T3 P808 X18.400	; Z-probe height [mm]
+Перед калибровкой сохраните ваши текущие значения из EEPROM или запишите их на бумаге. Если что-то пойдёт не так, вы сможете вернуть всё как было.
+
+Я рекомендую перед калибровкой привести все значения к "заводским" настройкам, чтобы утилита начинала с "чистого листа". Эти команды G-code приводят настройки к исходным. Можете использовать g-code, а можете вбить их вручную: отступы от концевиков делаем нулевыми, диагональ - 217мм, радиус - 217мм, диаметр - 95.2мм, углы - 210, 330 и 90 градусов, соответственно.
+
+    M206 T3 P153 X312.000	; Z max length [mm]
+    M206 T1 P893 S000	; Tower X endstop offset [steps]
+    M206 T1 P895 S000	; Tower Y endstop offset [steps]
+    M206 T1 P897 S000	; Tower Z endstop offset [steps]
+    M206 T3 P881 X217.000	; Diagonal rod length [mm]
+    M206 T3 P885 X95.2	; Horizontal rod radius at 0,0 [mm]
+    M206 T3 P901 X210.00	; Alpha A(210):
+    M206 T3 P905 X330.00	; Alpha B(330):
+    M206 T3 P909 X90.000	; Alpha C(90):
+    M206 T3 P913  X0.000	; Delta Radius A(0):
+    M206 T3 P917  X0.000	; Delta Radius B(0):
+    M206 T3 P921  X0.000	; Delta Radius C(0):
+    M206 T3 P933  X0.000	; Corr. diagonal A [mm]
+    M206 T3 P937  X0.000	; Corr. diagonal B [mm]
+    M206 T3 P941  X0.000	; Corr. diagonal C [mm]
+    M206 T3 P808  X0.400	; Z-probe height [mm]
+
+Обязательно убедитесь, что параметр "steps per mm" (шаги мотора на миллиметр) выставлен верно - при обновлении прошивки он иногда "слетает"!
+
+## Важное замечание про датчик Z-probe
+
+Если вы используете штатный датчик, пропустите этот раздел.
+
+Если у вас используется пристяжной датчик, который крепится под соплом, обязательно убедитесь, что параметр `Z-probe height [mm]` у вас в EEPROM равен нулю, а высота печати (`Z max length [mm]`) уменьшена на высоту датчика.
+
+Для примера - у меня высота печати составляет 311.82мм. [Датчик](https://www.facebook.com/groups/173676226330714/permalink/371138909917777/) у меня пристёгивается под соплом, его высота 12.4мм. Я вычел из исходной высоты 12.4 и получил 293.42, и полученное значение вписал в EEPROM как новую "z-height".
+
+![Teddy with boner](https://scontent-ams3-1.xx.fbcdn.net/v/t1.0-9/16195531_10158495767570354_6174518943208334893_n.jpg?oh=798154abea958b18114b8c29e6ea8d4f&oe=59636BB6)
 
 ## Калибруем принтер с OpenDACT
 
 Запустите программу. В поле `Build diameter` введите диаметр круга, по которому будет проходить калибровка. _Не жадничайте_, смысла гонять принтер по самому краю стола нет - из-за конструкции принтера по краям замеры получаются очень неточные. Диаметр в 100 - 120 мм вполне достаточен!
 
+В поле `Diagonal rod` впишите `217`. Выберите правильный порт, в поле `Baud rate` должно быть `250 000`. Нажмите `Connect`.
+
+Затем нажмите `Advanced`. Убедитесь, что в поле `Z-minimum type` стоит значение `FSR`, в поле `FSR plate offset`  и в `Z-probe height` стоят нули. 
+
+![OpenDact - 1st screenshot](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/opendact1.png)
+
+![OpenDact - 2nd screenshot](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/opendact2.png)
