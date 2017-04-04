@@ -15,3 +15,29 @@
 Выбирайте тот, что проще. Я пошёл по первому варианту, в работе ничего не изменилось, кроме того, что в Excel числа теперь отображаются с точками.
 
 ![Скриншот](https://cloud.githubusercontent.com/assets/1763243/20276440/4d898040-aaad-11e6-83a2-d61963abfb82.png)
+
+Не забудьте перезагрузиться, чтобы изменения локали вступили в силу.
+
+## Исправляем значения в EEPROM принтера перед калибровкой
+
+ M206 T3 P153 X311.820	; Z max length [mm]
+ M206 T1 P893 S000	; Tower X endstop offset [steps]
+ M206 T1 P895 S383	; Tower Y endstop offset [steps]
+ M206 T1 P897 S255	; Tower Z endstop offset [steps]
+ M206 T3 P881 X217.000	; Diagonal rod length [mm]
+ M206 T3 P885 X95.2	; Horizontal rod radius at 0,0 [mm]
+ M206 T3 P901 X210.00	; Alpha A(210):
+ M206 T3 P905 X330.00	; Alpha B(330):
+ M206 T3 P909 X90.000	; Alpha C(90):
+ M206 T3 P913  X0.000	; Delta Radius A(0):
+ M206 T3 P917  X0.000	; Delta Radius B(0):
+ M206 T3 P921  X0.000	; Delta Radius C(0):
+ M206 T3 P933  X0.000	; Corr. diagonal A [mm]
+ M206 T3 P937  X0.000	; Corr. diagonal B [mm]
+ M206 T3 P941  X0.000	; Corr. diagonal C [mm]
+ M206 T3 P808 X18.400	; Z-probe height [mm]
+
+## Калибруем принтер с OpenDACT
+
+Запустите программу. В поле `Build diameter` введите диаметр круга, по которому будет проходить калибровка. _Не жадничайте_, смысла гонять принтер по самому краю стола нет - из-за конструкции принтера по краям замеры получаются очень неточные. Диаметр в 100 - 120 мм вполне достаточен!
+
