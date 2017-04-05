@@ -39,7 +39,7 @@
     M206 T3 P933  X0.000	; Corr. diagonal A [mm]
     M206 T3 P937  X0.000	; Corr. diagonal B [mm]
     M206 T3 P941  X0.000	; Corr. diagonal C [mm]
-    M206 T3 P808  X0.000	; Z-probe height [mm]
+    M206 T3 P808  X0.000	; Z-probe height [mm]
 
 Обязательно убедитесь, что параметр "steps per mm" (шаги мотора на миллиметр) выставлен верно - при обновлении прошивки он иногда "слетает"!
 
