@@ -1,5 +1,7 @@
 # Manual calibration of Micromake D1 3D printer
 
+## ** Warning! This tutorial has been deprecated - read [this 2-part article instead](https://github.com/Bougakov/Micromake-D1-3D-printer/blob/master/Installing%20custom%20firmware.md) **
+
 This HOWTO was written for [Micromake users' group on Facebook](https://www.facebook.com/groups/173676226330714/).
 
 For a long time I wasn't able to print something with a footprint larger than 5cm in diameter on my Micromake D1. "Auto level" function in CURA never worked for me quite well. This is what I was getting with a [test plate model from Thingiverse](http://www.thingiverse.com/thing:1549840) even with the best 0.04mm tolerance:
