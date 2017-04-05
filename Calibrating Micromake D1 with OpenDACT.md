@@ -2,27 +2,19 @@ Part two. Continues from "[Patching and installing Micromake D1 firmware (Repeti
 
 # Calibrating Micromake D1 using OpenDACT utility
 
-Утилиту OpenDACT нужно брать тут - http://forum.seemecnc.com/viewtopic.php?f=36&t=8698 Вам нужна версия `2.0.5A`. Скачайте дистрибутив, разверните его в удобную папку. Сначала запустите `setup.exe` и только потом - `Delta Kinematics Calibration Tool.exe`.
+Obtain the OpenDACT utility here - http://forum.seemecnc.com/viewtopic.php?f=36&t=8698 You will need version `2.0.5A`. Download the distribution, unzip it into convenient location and execute `setup.exe` first. Then, run `Delta Kinematics Calibration Tool.exe`.
 
-## Исправление ошибки с русской локалью
+## Fix errors with non-US locale
 
-В OpenDACT есть баг - программу писал американец, а у них дробную часть числа принято отделять не запятой, как у нас, а точкой. Когда программа наталкивается на число с запятой, она вылетает. Автору сообщено о баге - https://github.com/RollieRowland/OpenDACT/issues/13 - но пока он его не исправил, есть 3 выхода:
+OpenDACT has a bug - because it was written by an American, it assumes that the decimal part in integers is separated by th point. Yet in Russia and few other countries comma is used as decimal separator instead. Once the software meets an unexpected symbol, it crashes. Author has been notified about this bug - https://github.com/RollieRowland/OpenDACT/issues/13 - but unless fixed, it can be circumvented by changing "locale settings" in Windows:
 
- - поменять настройки Windows ("Панель управления" - "Региональные стандарты") - и заменить точку на запятую в дробях
- - или сменить локаль на американскую целиком (но тогда у вас названия дней недели и месяцев станут английскими)
- - или завести в Windows отдельного пользователя с английской локалью
- 
-Выбирайте тот, что проще. Я пошёл по первому варианту, в работе ничего не изменилось, кроме того, что в Excel числа теперь отображаются с точками.
+![Screenshot](https://cloud.githubusercontent.com/assets/1763243/20276440/4d898040-aaad-11e6-83a2-d61963abfb82.png)
 
-![Скриншот](https://cloud.githubusercontent.com/assets/1763243/20276440/4d898040-aaad-11e6-83a2-d61963abfb82.png)
+## Let's reset EEPROM settings to defaults before calibration
 
-Не забудьте перезагрузиться, чтобы изменения локали вступили в силу.
+Save your current settings to a file or write them down in case you'd want to have them back. 
 
-## Исправляем значения в EEPROM принтера перед калибровкой
-
-Перед калибровкой сохраните ваши текущие значения из EEPROM или запишите их на бумаге. Если что-то пойдёт не так, вы сможете вернуть всё как было.
-
-Я рекомендую перед калибровкой привести все значения к "заводским" настройкам, чтобы утилита начинала с "чистого листа". Эти команды G-code приводят настройки к исходным. Можете использовать g-code, а можете вбить их вручную: отступы от концевиков делаем нулевыми, диагональ - 217мм, радиус - 95.2мм, диаметр - 95.2мм, углы башен - 210, 330 и 90 градусов, соответственно.
+I strongly suggest resetting all values to defaults so OpenDACT will be starting from scratch. This list of g-codes will do the job; alternatively you can alter them manually:
 
     M206 T3 P153 X312.000   ; Z max length [mm]
     M206 T1 P893 S000       ; Tower X endstop offset [steps]
@@ -41,15 +33,15 @@ Part two. Continues from "[Patching and installing Micromake D1 firmware (Repeti
     M206 T3 P941  X0.000    ; Corr. diagonal C [mm] 
     M206 T3 P808  X0.000    ; Z-probe height [mm] 
 
-Обязательно убедитесь, что параметр "steps per mm" (шаги мотора на миллиметр) выставлен верно - при обновлении прошивки он иногда "слетает"!
+Please ensure that the "steps per mm" parameter is correctly set - it can be corrupted during firmware upgrade!
 
-## Важное замечание про датчик Z-probe
+## Important note on Z-probe
 
-Если вы используете штатный датчик, пропустите этот раздел.
+If you are using stock Z-probe, skip this section.
 
-Если у вас используется пристяжной датчик, который крепится под соплом, обязательно убедитесь, что параметр `Z-probe height [mm]` у вас в EEPROM равен нулю, а высота печати (`Z max length [mm]`) уменьшена на высоту датчика.
+If you are using snap-on Z-probe, please ensure that `Z-probe height [mm]` is set to zero in your printer's EEPROM, and the value of `Z max length [mm]` is decreased by the probe's height.
 
-Для примера - у меня высота печати составляет 311.82мм. [Датчик](https://www.facebook.com/groups/173676226330714/permalink/371138909917777/) у меня пристёгивается под соплом, его высота 12.4мм. Я вычел из исходной высоты 12.4 и получил 293.42, и полученное значение вписал в EEPROM как новую "z-height".
+For example, my printer's height is 311.82mm. [The "teddybear" Z-probe](https://www.facebook.com/groups/173676226330714/permalink/371138909917777/) I am using is attached below on a hinge, its height is 12.4mm. I subtracted 12.4 from the original height and got 293.42mm, - I entered this new value into EEPROM as the new `Z max length [mm]`.
 
 ![Teddy with boner](https://scontent-ams3-1.xx.fbcdn.net/v/t1.0-9/16195531_10158495767570354_6174518943208334893_n.jpg?oh=798154abea958b18114b8c29e6ea8d4f&oe=59636BB6)
 
