@@ -45,7 +45,7 @@ For example, my printer's height is 311.82mm. [The "teddybear" Z-probe](https://
 
 ![Teddy with boner](https://scontent-ams3-1.xx.fbcdn.net/v/t1.0-9/16195531_10158495767570354_6174518943208334893_n.jpg?oh=798154abea958b18114b8c29e6ea8d4f&oe=59636BB6)
 
-*(If you like this design of the Z-probe, you can purchase it from [Pinshape](https://pinshape.com/items/31151-3d-printed-z-eddy-the-micromake-z-probe-e3d-v5-fits-afinibot-etc). It is totally worth the asking price.).*
+*(If you like this design of the Z-probe, you can purchase it from [Pinshape](https://pinshape.com/items/31151-3d-printed-z-eddy-the-micromake-z-probe-e3d-v5-fits-afinibot-etc). It is totally worth the asking price.)*
 
 ## Calibrate the printer with OpenDACT
 
@@ -67,13 +67,13 @@ You can see for yourself how flawed your build is by looking at the values on th
 
 ## Final notes
 
-OpenDACT is buggy and glitchy yet it does amazing job. If you are good at coding in C# - please contribute to  https://github.com/RollieRowland/OpenDACT
+OpenDACT is buggy and glitchy yet it does amazing job. If you are good at coding in C# - please contribute to  https://github.com/RollieRowland/OpenDACT - it will be greatly appreciated by the community.
 
 ## Final step - adjust the Z-height
 
-Put a piece of heavy paper on the glass - magazine cover is OK. Use the LCD screen menu, open `Configuration` -> `Z calib.` -> `Z position`.
+Put a piece of heavy paper on the glass - piece of thick magazine cover page is OK. Use the LCD screen menu, open `Configuration` -> `Z calib.` -> `Z position`.
 
-Carefully, like a bank robber in the Hollywood heist movie, rotate the knob and bring the nozzle down so it holds paper firmly yet you can move it with your fingers back and forth without much effort. 
+Carefully, like a bank robber in the Hollywood heist movie, rotate the knob and bring the nozzle down so it holds paper yet you can move it with your fingers back and forth without much effort. 
 
 ![Bank heist](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/lock%20artist.jpg)
 
