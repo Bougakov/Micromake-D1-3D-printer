@@ -1,4 +1,4 @@
-Продолжение. Начало статьи - по ссылке [Установка другой прошивки на Micromake D1](https://github.com/Bougakov/Micromake-D1-3D-printer/blob/master/Installing%20custom%20firmware%20(RUS).md)
+Продолжение. Начало статьи - по ссылке "[Установка другой прошивки на Micromake D1](https://github.com/Bougakov/Micromake-D1-3D-printer/blob/master/Installing%20custom%20firmware%20(RUS).md)"
 
 # Калибровка Micromake D1 утилитой OpenDACT
 
@@ -52,6 +52,8 @@
 Для примера - у меня высота печати составляет 311.82мм. [Датчик](https://www.facebook.com/groups/173676226330714/permalink/371138909917777/) у меня пристёгивается под соплом, его высота 12.4мм. Я вычел из исходной высоты 12.4 и получил 293.42, и полученное значение вписал в EEPROM как новую "z-height".
 
 ![Teddy with boner](https://scontent-ams3-1.xx.fbcdn.net/v/t1.0-9/16195531_10158495767570354_6174518943208334893_n.jpg?oh=798154abea958b18114b8c29e6ea8d4f&oe=59636BB6)
+
+*(Если вы хотите такой датчик автолевела, модель можно купить [на Pinshape](https://pinshape.com/items/31151-3d-printed-z-eddy-the-micromake-z-probe-e3d-v5-fits-afinibot-etc). Она однозначно стоит своих трёх евро - не пожалейте автору, Sami Lappalainen, денег на пиво за старания).*
 
 ## Калибруем принтер с OpenDACT
 
