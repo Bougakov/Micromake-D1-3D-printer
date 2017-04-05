@@ -141,4 +141,4 @@
 Откройте CURA и залейте в принтер заводскую прошивку.
     
     
-Продолжение статьи - "[Калибровка Micromake D1 утилитой OpenDACT](https://github.com/Bougakov/Micromake-D1-3D-printer/blob/master/Calibrating%20Micromake%20D1%20with%20OpenDACT%20(RUS).md)"
+This article continues in "[Calibrating Micromake D1 using OpenDACT utility](https://github.com/Bougakov/Micromake-D1-3D-printer/blob/master/Calibrating%20Micromake%20D1%20with%20OpenDACT.md)"
