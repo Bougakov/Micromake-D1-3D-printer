@@ -24,24 +24,25 @@
 
 Я рекомендую перед калибровкой привести все значения к "заводским" настройкам, чтобы утилита начинала с "чистого листа". Эти команды G-code приводят настройки к исходным. Можете использовать g-code, а можете вбить их вручную: отступы от концевиков делаем нулевыми, диагональ - 217мм, радиус - 217мм, диаметр - 95.2мм, углы - 210, 330 и 90 градусов, соответственно.
 
-    M206 T3 P153 X312.000	; Z max length [mm]
-    M206 T1 P893 S000	; Tower X endstop offset [steps]
-    M206 T1 P895 S000	; Tower Y endstop offset [steps]
-    M206 T1 P897 S000	; Tower Z endstop offset [steps]
-    M206 T3 P881 X217.000	; Diagonal rod length [mm]
-    M206 T3 P885 X95.2	; Horizontal rod radius at 0,0 [mm]
-    M206 T3 P901 X210.00	; Alpha A(210):
-    M206 T3 P905 X330.00	; Alpha B(330):
-    M206 T3 P909 X90.000	; Alpha C(90):
-    M206 T3 P913  X0.000	; Delta Radius A(0):
-    M206 T3 P917  X0.000	; Delta Radius B(0):
-    M206 T3 P921  X0.000	; Delta Radius C(0):
-    M206 T3 P933  X0.000	; Corr. diagonal A [mm]
-    M206 T3 P937  X0.000	; Corr. diagonal B [mm] 
-    M206 T3 P941  X0.000	; Corr. diagonal C [mm] 
-    M206 T3 P808  X0.000	; Z-probe height [mm] 
+    M206 T3 P153 X312.000   ; Z max length [mm]
+    M206 T1 P893 S000       ; Tower X endstop offset [steps]
+    M206 T1 P895 S000       ; Tower Y endstop offset [steps]
+    M206 T1 P897 S000       ; Tower Z endstop offset [steps]
+    M206 T3 P881 X217.000   ; Diagonal rod length [mm]
+    M206 T3 P885 X95.2      ; Horizontal rod radius at 0,0 [mm]
+    M206 T3 P901 X210.00    ; Alpha A(210):
+    M206 T3 P905 X330.00    ; Alpha B(330):
+    M206 T3 P909 X90.000    ; Alpha C(90):
+    M206 T3 P913  X0.000    ; Delta Radius A(0):
+    M206 T3 P917  X0.000    ; Delta Radius B(0):
+    M206 T3 P921  X0.000    ; Delta Radius C(0):
+    M206 T3 P933  X0.000    ; Corr. diagonal A [mm]
+    M206 T3 P937  X0.000    ; Corr. diagonal B [mm] 
+    M206 T3 P941  X0.000    ; Corr. diagonal C [mm] 
+    M206 T3 P808  X0.000    ; Z-probe height [mm] 
 
 Обязательно убедитесь, что параметр "steps per mm" (шаги мотора на миллиметр) выставлен верно - при обновлении прошивки он иногда "слетает"!
+
 
 ## Важное замечание про датчик Z-probe
 
