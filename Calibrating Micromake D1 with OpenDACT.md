@@ -6,7 +6,7 @@ Obtain the OpenDACT utility here - http://forum.seemecnc.com/viewtopic.php?f=36&
 
 ## Fix errors with non-US locale
 
-OpenDACT has a bug - because it was written by an American, it assumes that the decimal part in integers is separated by th point. Yet in Russia and few other countries comma is used as decimal separator instead. Once the software meets an unexpected symbol, it crashes. Author has been notified about this bug - https://github.com/RollieRowland/OpenDACT/issues/13 - but unless fixed, it can be circumvented by changing "locale settings" in Windows:
+OpenDACT has a bug - because it was written by an American, it assumes that the decimal part in integers is separated by the *point* character. Yet in Russia and few other countries *comma* is used as decimal separator instead. Once the software meets an unexpected symbol, it crashes. Author has been notified about this bug - https://github.com/RollieRowland/OpenDACT/issues/13 - but unless fixed, it can be circumvented by changing "locale settings" in Windows. Apply this fix if you are affected by this bug:
 
 ![Screenshot](https://cloud.githubusercontent.com/assets/1763243/20276440/4d898040-aaad-11e6-83a2-d61963abfb82.png)
 
@@ -45,27 +45,27 @@ For example, my printer's height is 311.82mm. [The "teddybear" Z-probe](https://
 
 ![Teddy with boner](https://scontent-ams3-1.xx.fbcdn.net/v/t1.0-9/16195531_10158495767570354_6174518943208334893_n.jpg?oh=798154abea958b18114b8c29e6ea8d4f&oe=59636BB6)
 
-*(Если вы хотите такой датчик автолевела, модель можно купить [на Pinshape](https://pinshape.com/items/31151-3d-printed-z-eddy-the-micromake-z-probe-e3d-v5-fits-afinibot-etc). Она однозначно стоит своих трёх евро - не пожалейте автору, Sami Lappalainen, денег на пиво за старания).*
+*(If you like this design of the Z-probe, you can purchase it from [Pinshape](https://pinshape.com/items/31151-3d-printed-z-eddy-the-micromake-z-probe-e3d-v5-fits-afinibot-etc). It is totally worth the asking price.).*
 
-## Калибруем принтер с OpenDACT
+## Calibrate the printer with OpenDACT
 
-Запустите программу. В поле `Build diameter` введите диаметр круга, по которому будет проходить калибровка. _Не жадничайте_, смысла гонять принтер по самому краю стола нет - из-за конструкции дельта-принтера по краям каретку немного перекашивает и замеры получаются очень неточные. Диаметр в 100 - 120 мм вполне достаточен!
+Launch the program. In the `Build diameter` enter the diameter of the circle you'd like to probe during calibration. _Don't be greedy_, there is no point in probing the edges of the glass. The design of the delta makes the effector bend on the edges of the plate making the measurements inaccurate. The diameter of 100 - 120mm is perfectly enough!
 
-В поле `Diagonal rod` впишите `217`. Выберите правильный порт, в поле `Baud rate` должно быть `250 000`. Нажмите `Connect`.
+In `Diagonal rod` field enter `217`. Select the correct port and choose `Baud rate` of `250 000`. Hit `Connect`.
 
-Затем нажмите `Advanced`. Убедитесь, что в поле `Z-minimum type` стоит значение `FSR` (а [не](https://github.com/RollieRowland/OpenDACT/issues/14#issuecomment-288098600) `Z-probe`!), а в полях `FSR plate offset` и в `Z-probe height` стоят нули. 
+Then hit `Advanced`. Ensure that `Z-minimum type` is set to `FSR` (and [not](https://github.com/RollieRowland/OpenDACT/issues/14#issuecomment-288098600) `Z-probe`!), and fields `FSR plate offset` amd `Z-probe height` are set to zero. 
 
-Параметр `Z-probe start height` задаёт высоту, ниже которой голова будет двигаться медленно. Если этот параметр выставить слишком большим, калибровка займёт больше времени. Если выставить слишком мало, то есть риск пропахать головой стекло стола. Подбирайте значение с умом.
+`Z-probe start height` sets the height starting from which printer moves its effector very slowly. If you set it too high, calibration will proceed slower. Setting it too low creates the risk of full speed collision of the nozzle and the glass. Use your discretion when setting this.
 
-Когда настройки сделаны, жмите `Calibrate` (не `A.I. Calibrate` и не `H.A.I. Calibrate`). Всё остальное утилита сделает за вас.
+Once you've set the values, hit `Calibrate` (but not `A.I. Calibrate` and not `H.A.I. Calibrate`). The rest will be done automatically.
 
 ![OpenDact - 1st screenshot](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/opendact1.png)
 
-То, насколько кривой ваш принтер на самом деле, вы можете увидеть на второй вкладке. Чем больше углы отличаются от теоретических 90 градусов - тем кривее принтер:
+You can see for yourself how flawed your build is by looking at the values on the second tab:
 
 ![OpenDact - 2nd screenshot](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/opendact2.png)
 
-## Финальные замечания
+## Final notes
 
 Утилита OpenDACT - кривая и глючная, вылетает при любом чихе. Но дело своё делает, так что смиритесь. Если у вас есть навыки в разработке на C# - пожалуйста, помогите автору исправлять баги. Код открыт и выложен на https://github.com/RollieRowland/OpenDACT
 
