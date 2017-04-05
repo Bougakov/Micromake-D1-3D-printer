@@ -67,40 +67,14 @@ You can see for yourself how flawed your build is by looking at the values on th
 
 ## Final notes
 
-Утилита OpenDACT - кривая и глючная, вылетает при любом чихе. Но дело своё делает, так что смиритесь. Если у вас есть навыки в разработке на C# - пожалуйста, помогите автору исправлять баги. Код открыт и выложен на https://github.com/RollieRowland/OpenDACT
+OpenDACT is buggy and glitchy yet it does amazing job. If you are good at coding in C# - please contribute to  https://github.com/RollieRowland/OpenDACT
 
-Ссылка на обсуждение статьи в VK - https://vk.com/micromake_d1?w=wall-134740295_7428
+## Final step - adjust the Z-height
 
-## И напоследок - выставляем правильную высоту печати
+Put a piece of heavy paper on the glass - magazine cover is OK. Use the LCD screen menu, open `Configuration` -> `Z calib.` -> `Z position`.
 
-Положите на стекло плотный кусочек бумаги. Полоска "альбомной" бумаги или кусок обложки журнала - лучше всего. Через меню на LCD-кране принтера зайдите в пункт, `Configuration` -> `Z calib.` -> `Z position`.
-
-Аккуратно, будто вы герой фильма про ограбление банка, опустите сопло вниз, чтобы оно прижало бумажку к стеклу. Не переусердствуйте, крутите ручку нежно и медленно, чтобы не засадить сопло в стол. Если не получилось и эффектор перекосило, дайте команду `Home all` и начните снова.
+Carefully, like a bank robber in the Hollywood heist movie, rotate the knob and bring the nozzle down so it holds paper firmly yet you can move it with your fingers back and forth without much effort. 
 
 ![Bank heist](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/images/lock%20artist.jpg)
 
-Ваша задача - опустить сопло так, чтобы бумажку слегка прижало соплом - но чтобы её можно было легко протащить пальцами без усилия.
-
-## Если вам хочется убедиться, что принтер реально откалиброван, не печатая тестовую "тарелку":
-
-Вы можете заставить его промерять всю площадь стола датчиком. Я написал утилиту, которая делает такие вот карты высот:
-
-![Height map](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/visualize/23%20OpenDACT.png)
-
-Утилиты выложены на https://github.com/Bougakov/Micromake-D1-3D-printer/tree/master/visualize#tool-for-creating-easy-to-analyze-delta-kossel-bed-distortion-heat-maps 
-
-Вам понадобятся Microsoft Excel и Python3. Мои скрипты очень сырые, не судите строго.
-
- * Сначала джаваскриптом генерируется g-code - получается маршрут для "прощупывания" стола по спирали
- * вы этот g-code скармливаете принтеру, он его исполняет. После исполнения кода принтер сложит результаты замеров в лог.
- * Лог надо почистить в Экселе, чтобы осталось 3 колонки цифр - замер высоты, координата по X и координата по Y.
- * Сохраните 3 колонки в tab-delimited CSV-файл и скормите скрипту на питоне (впишите имя CSV-файла в код скрипта).
- * Запустите скрипт и он построит график с помощью mathplotlib
- 
-Если вы хорошо пишете на Python и сможете доработать скрипт так, чтобы он:
-
- * Превратился бы в GUI-приложение
- * Имел бы поле, в которое можно было бы вставить лог принтера "как есть"
- * Умел бы парсить этот лог и доставать только нужные строчки
- 
-...то все вам будут очень благодарны. Присылайте пулл-реквесты.
+Once you've found the right position, use `Set Z=0` menu to store correct height value in EEPROM.
