@@ -12,9 +12,40 @@ OpenDACT has a bug - because it was written by an American, it assumes that the 
 
 ## Let's reset EEPROM settings to defaults before calibration
 
-Save your current settings to a file or write them down in case you'd want to have them back. 
+Save your current settings to a file or write them down in case you'd want to have them back. I strongly suggest resetting all values to defaults so OpenDACT will be starting from scratch. 
 
-I strongly suggest resetting all values to defaults so OpenDACT will be starting from scratch. This list of g-codes will do the job; alternatively you can alter them manually:
+### The easiest way to edit printer's settings - using CURA
+
+Launch CURA and connect to printer. In the menu, choose `Machine` -> `Firmware configuration`. You'll get this window:
+
+![CURA EEPROM dialog](https://pp.userapi.com/c836128/v836128745/415b2/MxaS8MbzS88.jpg)
+
+Take a sheet of paper and write down old values before you change them to defaults - you'll need these in case you want everything back.
+
+You will have to enter these defaults::
+
+| Setting | What it does | default value |
+| --- | --- | --- |
+| Z max length [mm] | Высота печати | Leave as is |
+| Tower X endstop offset [steps] | Отступ первой башни | `0` |
+| Tower Y endstop offset [steps] | Отступ второй башни | `0` |
+| Tower Z endstop offset [steps] | Отступ третьей башни | `0` |
+| Diagonal rod length [mm] | Длина диагональных шарниров | `217` |
+| Horizontal rod radius at 0,0 [mm] | Радиус эффектора с подвесом | `94.5` |
+| Alpha A(210): | Угол первой башни | `210` градусов |
+| Alpha B(330): | Угол второй башни | `330` градусов |
+| Alpha C(90): | Угол третьей башни | `90` градусов |
+| Delta Radius A(0): | Отступ первой башни от центра | `0` |
+| Delta Radius B(0): | Отступ второй башни от центра | `0` |
+| Delta Radius C(0): | Отступ третьей башни от центра | `0` |
+| Corr. diagonal A [mm] | Поправка на диагональ 1й башни | `0` |
+| Corr. diagonal B [mm] | Поправка на диагональ 2й башни | `0` |
+| Corr. diagonal C [mm] | Поправка на диагональ 3й башни | `0` |
+| Z-probe height [mm]  | Высота датчика высоты | `0` |
+
+### Another way, for advanced users - change all settings with a batch of g-codes at once 
+
+These g-codes will change all settings at once - copy the list and execute it using Repetier, Pronterface or whatever tool you like.
 
     M206 T3 P153 X312.000   ; Z max length [mm]
     M206 T1 P893 S000       ; Tower X endstop offset [steps]
