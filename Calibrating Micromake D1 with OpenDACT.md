@@ -26,22 +26,22 @@ You will have to enter these defaults::
 
 | Setting | What it does | default value |
 | --- | --- | --- |
-| Z max length [mm] | Высота печати | Leave as is |
-| Tower X endstop offset [steps] | Отступ первой башни | `0` |
-| Tower Y endstop offset [steps] | Отступ второй башни | `0` |
-| Tower Z endstop offset [steps] | Отступ третьей башни | `0` |
-| Diagonal rod length [mm] | Длина диагональных шарниров | `217` |
-| Horizontal rod radius at 0,0 [mm] | Радиус эффектора с подвесом | `94.5` |
-| Alpha A(210): | Угол первой башни | `210` градусов |
-| Alpha B(330): | Угол второй башни | `330` градусов |
-| Alpha C(90): | Угол третьей башни | `90` градусов |
-| Delta Radius A(0): | Отступ первой башни от центра | `0` |
-| Delta Radius B(0): | Отступ второй башни от центра | `0` |
-| Delta Radius C(0): | Отступ третьей башни от центра | `0` |
-| Corr. diagonal A [mm] | Поправка на диагональ 1й башни | `0` |
-| Corr. diagonal B [mm] | Поправка на диагональ 2й башни | `0` |
-| Corr. diagonal C [mm] | Поправка на диагональ 3й башни | `0` |
-| Z-probe height [mm]  | Высота датчика высоты | `0` |
+| Z max length [mm] | Sets the correct distance from top to bed | Leave as is |
+| Tower X endstop offset [steps] | Adjusts height of 1st tower | `0` |
+| Tower Y endstop offset [steps] | Adjusts height of 2nd tower | `0` |
+| Tower Z endstop offset [steps] | Adjusts height of 3rd tower | `0` |
+| Diagonal rod length [mm] | Sets the length of the diagonals | `217` |
+| Horizontal rod radius at 0,0 [mm] | Sets radius of the effector assembly | `94.5` |
+| Alpha A(210): | Adjusts the angle of 1st tower (X) | `210` degrees |
+| Alpha B(330): | Adjusts the angle of 2nd tower (Y) | `330` degrees |
+| Alpha C(90): | Adjusts the angle of 3rd tower (Z) | `90` degrees |
+| Delta Radius A(0): | Adjusts the distance of 1st tower from center | `0` |
+| Delta Radius B(0): | Adjusts the distance of 1st tower from center | `0` |
+| Delta Radius C(0): | Adjusts the distance of 1st tower from center | `0` |
+| Corr. diagonal A [mm] | Fixes the tilt of the 1st tower | `0` |
+| Corr. diagonal B [mm] | Fixes the tilt of the 2nd tower | `0` |
+| Corr. diagonal C [mm] | Fixes the tilt of the 3rd tower | `0` |
+| Z-probe height [mm]  | Sets the height of Z-sensor | `0` |
 
 ### Another way, for advanced users - change all settings with a batch of g-codes at once 
 
@@ -88,7 +88,7 @@ Then hit `Advanced`. Ensure that `Z-minimum type` is set to `FSR` (and [not](htt
 
 `Z-probe start height` sets the height starting from which printer moves its effector very slowly. If you set it too high, calibration will proceed slower. Setting it too low creates the risk of full speed collision of the nozzle and the glass. Use your discretion when setting this.
 
-Once you've set the values, hit `Calibrate` (but not `A.I. Calibrate` and not `H.A.I. Calibrate`). The rest will be done automatically.
+Once you've set the values, hit `H.A.I. Calibrate` (not `A.I. Calibrate`) or `Calibrate`). The rest will be done automatically.
 
 ![OpenDact - 1st screenshot](https://raw.githubusercontent.com/Bougakov/Micromake-D1-3D-printer/master/opendact1.png)
 
