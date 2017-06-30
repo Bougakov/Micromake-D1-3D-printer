@@ -2,7 +2,7 @@ Part two. Continues from "[Patching and installing Micromake D1 firmware (Repeti
 
 # Calibrating Micromake D1 using OpenDACT utility
 
-Obtain the OpenDACT utility here - http://forum.seemecnc.com/viewtopic.php?f=36&t=8698 You will need version `2.0.5A`. Download the distribution, unzip it into convenient location and execute `setup.exe` first. Then, run `Delta Kinematics Calibration Tool.exe`.
+Obtain the OpenDACT utility here - http://forum.seemecnc.com/viewtopic.php?f=36&t=8698 You will need version `3.0.1A`. Download the distribution, unzip it into convenient location and execute `setup.exe` first. Then, run `Delta Kinematics Calibration Tool.exe`.
 
 ## Fix errors with non-US locale
 
@@ -79,6 +79,8 @@ For example, my printer's height is 311.82mm. [The "teddybear" Z-probe](https://
 *(If you like this design of the Z-probe, you can purchase it from [Pinshape](https://pinshape.com/items/31151-3d-printed-z-eddy-the-micromake-z-probe-e3d-v5-fits-afinibot-etc). It is totally worth the asking price.)*
 
 ## Calibrate the printer with OpenDACT
+
+_(Please note, screenshots were made with an older version of the program. Version you've downloaded, '3.1.0A', will look slightly different.)_
 
 Launch the program. In the `Build diameter` enter the diameter of the circle you'd like to probe during calibration. _Don't be greedy_, there is no point in probing the edges of the glass. The design of the delta makes the effector bend on the edges of the plate making the measurements inaccurate. The diameter of 100 - 120mm is perfectly enough!
 
