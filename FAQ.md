@@ -2,7 +2,7 @@
 
 This FAQ was written for [Facebook group of the owners of this cheap and great 3D printer](https://www.facebook.com/groups/173676226330714/). Unfortunately, Facebook sucks as a place to post large texts so I am placing them here. Feel free to send your pull requests if you want to add something.
 
-[Старая русскоязычная группа поддержки в ВК](https://vk.com/micromake3d) (её создали китайские сотрудники магазина, но забросили) и [новая, которую ведут энтузиасты](https://vk.com/micromake_d1).
+<!-- [Старая русскоязычная группа поддержки в ВК](https://vk.com/micromake3d) (её создали китайские сотрудники магазина, но забросили) и [новая, которую ведут энтузиасты](https://vk.com/micromake_d1). -->
 
 ### Variants of Micromake D1 and its “clones”:
 
@@ -18,7 +18,7 @@ Printers get shipped with either old or new type of main controller board.
 
 ### Things to consider before buying:
 
-*   You can [earn cash back of about 5%](https://www.ebates.com/r/FACEBO550?eeid=28187) when buying 3D printer on AliExpress, using Ebates or other service. Русскоязычные покупатели могут получить кэшбэк 7% на [Letyshops.](https://www.facebook.com/notes/alexander-bgk/cashback/888117147961047)
+*   You can [earn cash back of about 5%](https://www.ebates.com/r/FACEBO550?eeid=28187) when buying 3D printer on AliExpress, using Ebates or other service. 
 *   Good discussions on what to buy with your Micromake: [here](https://www.facebook.com/groups/173676226330714/permalink/333773956987606/) and [here](https://www.facebook.com/groups/173676226330714/permalink/333812513650417/)
 
 ### Links to proven sellers:
