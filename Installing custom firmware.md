@@ -44,7 +44,7 @@ Once we started editing, we can add more useful tweaks. Switch to `Configuration
 
 ### STARTUP_GCODE
 
-This parameter lists g-codes that are executed each time you power on or reboot printer. It is empty by default, mine looks like this (commands are separated with `\n` sumbols):
+This parameter lists g-codes that are executed each time you power on or reboot printer. It is empty by default, mine looks like this (commands are separated with `\n` symbols):
 
     #define STARTUP_GCODE "M115\nM119\nG28\nM140 S115\nM105 X0\n\n"
 
@@ -70,13 +70,12 @@ By default the value of this parameter is `1` - probe checks the bed only once i
 
 Chinese makers of our printer for some reason did not include correct coordinates for default probe points. Replace their incorrect values with right ones (three pairs of coordinates make 6 lines of code):
 
-    #define Z_PROBE_X1 0
-    #define Z_PROBE_Y1 65
-    #define Z_PROBE_X2 64.95
-    #define Z_PROBE_Y2 -37.5
-    #define Z_PROBE_X3 -64.95
-    #define Z_PROBE_Y3 -37.5
-
+    #define Z_PROBE_X1 49.24
+    #define Z_PROBE_Y1 8.682
+    #define Z_PROBE_X2 -32.139
+    #define Z_PROBE_Y2 38.302
+    #define Z_PROBE_X3 -8.682
+    #define Z_PROBE_Y3 -49.24
 
 ### BEEPER
 
@@ -120,7 +119,7 @@ Instead of "Micromake" you can display whatever you want. I suggest to edit this
 
 ## Uploading your patched firmware to printer
 
-*Warning!* Save or write down your EEPROM settings before proceeding!.
+*Warning!* Save or write down your EEPROM settings before proceeding!. It is highly recommended to *erase* EEPROM before changing firmware - see [this HOWTO](https://github.com/Bougakov/Micromake-D1-3D-printer/blob/master/EEPROM%20settings.md#this-arduino-sketch-wipes-eeprom-clean).
 
 After you've made your edits, press `Ctrl+U`. Your code will compile and will get uploaded to printer in 10-20 seconds. **Please test your printer by making the effector move a bit. If it moves twice faster or twice slower, double-check and fix microstepping settings and `steps per mm` value in EEPROM!** 
 
