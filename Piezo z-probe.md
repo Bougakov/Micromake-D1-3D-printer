@@ -1,5 +1,7 @@
 # Using piezo disc as z-probe
 
+![Schematics](http://3dtoday.ru/upload/main/0aa/0aa029e2c5641ebff3a33ed71cb2e249.png)
+
 ## Arduino sketch:
 
 ~~~~
