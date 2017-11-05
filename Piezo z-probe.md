@@ -4,6 +4,8 @@
 
 ## Arduino sketch:
 
+Play with (a) sizes of arrays (b) threshhold and (c) interval between readings:
+
 ~~~~
 #include <Average.h>   // Source - https://github.com/MajenkoLibraries/Average 
 Average<int> ave1(2);  // We use an array of last N measurements and average them
@@ -29,10 +31,8 @@ const int piezoPin4 = A4;
 
 const bool useNozzlePiezo = 0; // Enables or ignores 4th piezo
 
-///////////////// Fine-tune these 2 values: ////////////////////
 const int threshold = 8;    // threshold value to decide when the detected sound is a knock or not
 const int displayMax = 20;  // limits the upper reading in Serial monitor
-////////////////////////////////////////////////////////////////
 
 int sensorReading1 = 0;     // variable to store the value read from the sensor pin
 int sensorReading2 = 0; 
