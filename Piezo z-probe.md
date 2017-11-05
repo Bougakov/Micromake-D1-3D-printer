@@ -105,15 +105,15 @@ void loop() {
       ( ave1.mean() >= threshold ) ||
       ( ave2.mean() >= threshold ) ||
       ( ave3.mean() >= threshold ) ||
-//    (useNozzlePiezo != 0 && ( ave4.mean() >= threshold*20 )) // Nozzle pin is extra sensitive... 
+      (useNozzlePiezo != 0 && ( ave4.mean() >= threshold * 20 )) || // Nozzle pin is extra sensitive... 
       ( ave.mean() >= threshold )
     ) {
     if (DEBUG == 1){
-      Serial.println(displayMax + 5); // for debugging. Once sensor value is over threshold over given time, output gets triggered and this fact is displayed on chart with separate line.
+      Serial.println(displayMax + 5); // for debugging. Once sensor value is over threshold over given time, output gets triggered and this fact is displayed on chart with separate line. We slightly change the scale of the chart to make it more visible in debugging
     }
     digitalWrite(ledPin, HIGH);
     digitalWrite(relayPin, HIGH);
-    delayMicroseconds(50000); // waits 0.05 sec to make printer notice 
+    delayMicroseconds(50000); // once we've triggered output, we stay on for 0.05 sec to make printer really recognize it. 
   } else {
     if (DEBUG == 1){
       Serial.println("0");
@@ -131,3 +131,5 @@ void loop() {
   delayMicroseconds(interval); 
 }
 ~~~~
+
+Before testing, ensure that both contacts of piezo are properly insulated from printer's frame. Watch the polarity!
