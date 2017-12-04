@@ -26,7 +26,7 @@ Here are the parts of the printing head. ABS melts on the short end of the threa
 
 Go to the nearest DIY store and buy a spool of the sandard Teflon tape used in plumbing (it costs less than $1). Teflon can easily withstand heat, it is a good insulator and it makes screwing and unscrewing super easy:
 
-![Teflon tape](http://s.leroymerlin.ru/upload/catalog/img/7/4/11457225/800x800/11457225_1.jpg?v=3)
+![Teflon tape](https://www.nl.ua/upload/iblock/82f/70112178.jpg)
 
 Wrap the short end of the tube in the 4cm of Teflon tape:
 
