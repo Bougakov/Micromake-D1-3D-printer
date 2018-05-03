@@ -39,7 +39,7 @@ chmod +x ./build
 ./build
 ```
 
-To test your setup, run `gpio mode 3 input && gpio read 3`. It shoud output zero. Push the button, hold it, and repeat the command. It shoud output `1` this time.
+To test your setup, run `gpio mode 3 input && gpio read 3`. It shoud output `1`. Push the button, hold it, and repeat the command. It shoud output zero this time.
 
 ## Write a program to check the button state
 
