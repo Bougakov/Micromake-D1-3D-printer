@@ -19,7 +19,7 @@ I decided I need a physical button to turn it off.
   
 ## Wiring
 
-![Pushbutton wiring](/Bougakov/Micromake-D1-3D-printer/blob/master/Orange%20PI%20Zero/Pushbutton%20wiring.jpg?raw=true)
+![Pushbutton wiring](https://github.com/Bougakov/Micromake-D1-3D-printer/blob/master/Orange%20PI%20Zero/Pushbutton%20wiring.jpg?raw=true)
 
 Use `GND`, `3.3V` and `GPIO 3` (number 15 on the schematics below) to wire parts to your board:
 
