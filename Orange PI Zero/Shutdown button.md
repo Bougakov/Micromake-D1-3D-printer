@@ -13,7 +13,7 @@ I decided I need a physical button to turn it off.
 ## Parts needed:
 
   * 100uF electrolytic capacitor
-  * 10K resistor
+  * 10K to 100K resistor
   * pushbutton
   * few wires
   
@@ -25,6 +25,8 @@ Use `GND`, `3.3V` and `GPIO 3` (number 15 on the schematics below) to wire parts
 
 ![Pinout](https://i.stack.imgur.com/O03j0.jpg)
 
+Make sure everything is soldered properly, you don't want your board to shut down due to random spark in your circuit and ruin your 3D print!
+
 ## Software - prerequisites
 
 Connect to Pi Zero over SSH and run these commands:
@@ -34,7 +36,7 @@ cd ~
 git clone https://github.com/vladikoms/WiringOP-Zero.git
 cd WiringOP-Zero
 chmod +x ./build
-sudo ./build
+./build
 ```
 
 To test your setup, run `gpio mode 3 input && gpio read 3`. It shoud output zero. Push the button, hold it, and repeat the command. It shoud output `1` this time.
@@ -99,7 +101,7 @@ Once you'd press the button you will see a message `Initiated shutdown from butt
 
 ## Make the button checking program run automatically on each boot
 
-Run `nano /etc/rc.local` to open boot script for editing. Add the following line to the bottom of it (notice the trailing `&`!):
+Run `nano /etc/rc.local` to open boot script for editing. Add the following line to the bottom of it (notice the trailing `&` symbol!):
 
 ```
 ~/zerobutton &
