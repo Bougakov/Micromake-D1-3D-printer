@@ -7,8 +7,6 @@
  * EEPROM Clear
  *
  * Sets all of the bytes of the EEPROM to 0.
- * Please see eeprom_iteration for a more in depth
- * look at how to traverse the EEPROM.
  *
  * This example code is in the public domain.
  */
@@ -27,8 +25,6 @@ void setup() {
     - Arduino Uno:        1kb EEPROM storage.
     - Arduino Mega:       4kb EEPROM storage.
 
-    Rather than hard-coding the length, you should use the pre-provided length function.
-    This will make your code portable to all AVR processors.
   ***/
 
   for (int i = 0 ; i < EEPROM.length() ; i++) {
