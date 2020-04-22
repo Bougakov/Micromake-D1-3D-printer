@@ -1,5 +1,21 @@
 Part two. Continues from "[Patching and installing Micromake D1 firmware (Repetier)](https://github.com/Bougakov/Micromake-D1-3D-printer/blob/master/Installing%20custom%20firmware%.md)"
 
+# Important note:
+
+The stock Z-probe of the Micromake is utter shit. Because of the way it is constructed and friction between plastic parts, probing different areas of the bed produces an error of as high as 0.2mm. Even the best calibration algorithm can't level your bed if the source data is so dirty.
+
+The solution to this problem is this $1.5 device that should be mounted directly on the nozzle:
+
+[https://aliexpress.com/item/32838312776.html](https://alitems.com/g/1e8d1144949a590a4ec116525dc3e8/?ulp=https%3A%2F%2Faliexpress.com%2Fitem%2F32838312776.html)
+
+![zprobe](https://user-images.githubusercontent.com/1763243/80029227-27eb3e80-84ef-11ea-9c88-dffa44bcf45f.png)
+
+Basically, it is a flexible 0.2mm thick button that clicks as soon as the nozzle reaches the bed. It is soft and doesn't flex the effector like the original mechanism does. 
+
+# Important note no. 2:
+
+This HOWTO is no longer maintained. I've moved from stock Repetier firmware to Marlin 2.0 firmware which has an amazing feature called ["Unified bed leveling"](https://marlinfw.org/docs/features/unified_bed_leveling.html). It does its job like a magic.
+
 # Calibrating Micromake D1 using OpenDACT utility
 
 Obtain the OpenDACT utility here - http://forum.seemecnc.com/viewtopic.php?f=36&t=8698 You will need version `3.0.1A`. Download the distribution, unzip it into convenient location and execute `setup.exe` first. Then, run `Delta Kinematics Calibration Tool.exe`.
