@@ -2,7 +2,7 @@ Part two. Continues from "[Patching and installing Micromake D1 firmware (Repeti
 
 # Important note:
 
-The stock Z-probe of the Micromake is utter shit. Because of the way it is constructed and friction between plastic parts, probing different areas of the bed produces an error of as high as 0.2mm. Even the best calibration algorithm can't level your bed if the source data is so dirty.
+The stock Z-probe of the Micromake is an utter shit. Because of the way it is constructed and friction between plastic parts, probing different areas of the bed produces a random error of as high as 0.2mm. Even the best calibration algorithm can't level your bed if the source data is so dirty.
 
 The solution to this problem is this $1.5 device that should be mounted directly on the nozzle:
 
