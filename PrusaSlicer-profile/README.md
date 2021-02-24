@@ -1,4 +1,4 @@
-# Just a bare-bones PrusaSlicer profile for a custom Micromake D1
+# Just a bare-bones [PrusaSlicer](https://www.prusa3d.com/prusaslicer/) profile for a custom Micromake D1
 
 To edit the configuration preset:
 ```
